@@ -94,6 +94,8 @@ class User extends Migration
             ],
         ]);
 
+        $this->forge->addUniqueKey('username');
+
         $this->forge->addPrimaryKey('id');
 
         $this->forge->createTable('users');

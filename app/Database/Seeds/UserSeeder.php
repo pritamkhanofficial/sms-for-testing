@@ -11,7 +11,7 @@ class UserSeeder extends Seeder
         $data = [
             'username' => 'Ayesa123',
             'email' => 'ayesa@gmail.com',
-            'password' => 8514082388,
+            'password' => md5(8514082388),
             'mobile' => 8514082388,
             'full_name' => 'Ayesa Khatun',
             'created_by' => 1,
