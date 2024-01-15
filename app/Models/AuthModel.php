@@ -12,7 +12,7 @@ class AuthModel extends Model
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
     protected $protectFields = true;
-    protected $allowedFields = [];
+    protected $allowedFields = ['id', 'username', 'full_name', 'email', 'password', 'mobile', 'profile_pic', 'generet_token', 'generet_on','is_online', 'is_block' , 'is_active', 'created_at' , 'updated_at', 'created_by', 'updated_by' , 'deleted_at'];
 
     // Dates
     protected $useTimestamps = false;

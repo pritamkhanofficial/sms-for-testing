@@ -101,8 +101,14 @@ class User extends BaseController
             }
         }
 
-        $result = $authModel->updateData($data, $id);
-        echo $result;
+        $result = $authModel->update($id , $data);
+        if($result){
+            $session->setFlashdata('success' , 'Profile Update Successfully!');
+            return redirect()->to('profile_edit');
+        }else{
+            $session->setFlashdata('error', 'Oops!!  Something is wrong!');
+            return redirect()->to('profile_edit');
+        }
     }
 
     public function PasswordChange()
@@ -111,5 +117,69 @@ class User extends BaseController
         echo view('includes/sidebar');
         echo view('changepassword');
         echo view('includes/footer');
+    }
+
+    public function updatePass()
+    {
+        $old_pass = md5($this->request->getVar('password'));
+        $new_pass = md5($this->request->getVar('new_password'));
+        $confirm_pass = md5($this->request->getVar('confirm_pass'));
+
+        $session = session();
+
+        $rules = [
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required'
+            ],
+            'new_password' => [
+                'label' => 'New Password',
+                'rules' => 'required'
+            ],
+            'confirm_pass' => [
+                'label' => 'Confirm Password',
+                'rules' => 'required|matches[new_password]'
+            ]
+        ];
+
+        if (!$this->validate($rules)) {
+            $errors = $this->validator->getErrors();
+            if (isset($errors['password'])) {
+                $session->setFlashdata('pass_error', $errors['username']);
+            }
+            if (isset($errors['new_password'])) {
+                $session->setFlashdata('new_error', $errors['new_password']);
+            }
+            if (isset($errors['confirm_pass'])) {
+                $session->setFlashdata('confirm_error', $errors['confirm_pass']);
+            }
+            return redirect()->to('change_password');
+        }
+        $authModel = new AuthModel();
+
+        $user = $this->request->user;
+        $userId = $user['id'];
+        // echo $userId;
+
+        $result = $authModel->find($userId);
+        // print_r($result);
+        if ($result) {
+            if ($result['password'] == $old_pass) {
+                $update = $authModel->update($userId, ['password' => $new_pass]);
+                if ($update) {
+                    $session->setFlashdata('success', 'Password changed successfully!');
+                    return redirect()->to('change_password');
+                } else {
+                    $session->setFlashdata('error', 'Failed to update password.');
+                    return redirect()->to('change_password');
+                }
+            } else {
+                $session->setFlashdata('error', 'Invalid old password!');
+                return redirect()->to('change_password');
+            }
+        } else {
+            $session->setFlashdata('error', 'User not found.');
+            return redirect()->to('change_password');
+        }
     }
 }

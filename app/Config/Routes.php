@@ -18,3 +18,5 @@ $routes->get('/profile_edit', 'User::index', ['filter' => 'authfilter']);
 $routes->post('/update_profile','User::Profile_update', ['filter' => 'authfilter']);
 
 $routes->get('/change_password','User::PasswordChange', ['filter' => 'authfilter']);
+
+$routes->post('/setnewpass','User::updatePass',['filter' => 'authfilter']);

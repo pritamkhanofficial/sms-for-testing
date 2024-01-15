@@ -1,10 +1,18 @@
 <?php
 $session = session();
 ?>
-
 <div class="row">
     <div class="col-12">
         <div class="card">
+            <?php if ($session->has('success')) { ?>
+                <div class="alert alert-success" role="alert">
+                    <?php echo session('success'); ?>
+                </div>
+            <?php } else if ($session->has('error')) { ?>
+                    <div class="alert alert-danger" role="alert">
+                    <?php echo session('error'); ?>
+                    </div>
+            <?php } ?>
             <div class="card-body">
 
                 <h4 class="card-title mb-3">Edit Profile</h4>
