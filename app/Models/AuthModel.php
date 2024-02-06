@@ -48,25 +48,14 @@ class AuthModel extends Model
         return $this->where(['id' => $userid])->first();
     }
 
-    public function updateData($data, $id)
+    public function updateData($id, $data)
     {
-        // $existingRecord = $this->find($id);
+        $this->where(['id' => $id])->update($data);
+    
+    }
 
-        // if (!$existingRecord) {
-        //     return 0; 
-        // }
-    
-        // $oldProfilePic = $existingRecord['profile_pic'];
-    
-        return $this->where(['id', $id])->update($data);
-    
-        // if ($result) {
-        //     if (!empty($oldProfilePic)) {
-        //         @unlink(FCPATH . UPLOAD_PATH . $oldProfilePic);
-        //     }
-        // }
-    
-        // return $result;
+    public function getImage($id){
+        return $this->select('profile_pic')->where(['id' => $id])->get()->getRow();
     }
 
 

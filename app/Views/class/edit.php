@@ -74,7 +74,41 @@
                                 <?php } ?>
                                 <div class="card-body">
 
-                                   
+                                    <h4 class="card-title mb-3">Edit Class</h4>
+                                    <form action="<?= base_url('class/update/' . $classdata['id']) ?>" method='POST' ,
+                                        enctype="multipart/form-data">
+
+                                        <div class="mb-3 row">
+                                            <label for="" class="col-md-2 col-form-label">Class Name</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="text"
+                                                    value="<?= $classdata['class_name']; ?>" name='class'
+                                                    placeholder="Enter Class Name in Roman">
+                                            </div>
+                                            <div class="text-danger">
+                                                <?php echo $session->getFlashdata('name_error'); ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3 row">
+                                            <label for="" class="col-md-2 col-form-label">Numeric Name</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="number"
+                                                    value="<?= $classdata['numeric_name'] ?>" name='numeric'
+                                                    placeholder="Enter Numeric Number of Class">
+                                            </div>
+                                            <div class="text-danger">
+                                                <?php echo $session->getFlashdata('numeric_error'); ?>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row mb-3 text-center mt-4">
+                                            <div>
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div> <!-- end col -->

@@ -60,6 +60,9 @@
                     </div>
                     <!-- end page title -->
 
+                    <?php
+                    $session = session();
+                    ?>
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
@@ -73,8 +76,62 @@
                                         </div>
                                 <?php } ?>
                                 <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4 class="card-title">View Section Allocation</h4>
+                                        </div>
 
-                                   
+                                        <div class="col-md-6 d-flex justify-content-end mb-2">
+                                            <a class="btn btn-success btn-md"
+                                                href="<?= base_url('sectionallocation/add') ?>"><i
+                                                    class="fas fa-plus"></i>
+                                                Add</a>
+                                        </div>
+                                    </div>
+
+
+                                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                        <thead>
+                                            <tr>
+                                                <th>Sl. No</th>
+                                                <th>Class</th>
+                                                <th>Sections</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+
+
+                                        <tbody>
+                                            <?php
+                                            $i = 1;
+                                            foreach ($allocationData as $classId => $classData) {
+                                                ?>
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <?= $i ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $classData['class_name'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php foreach ($classData['sections'] as $section): ?>
+                                                            -<?= $section ?><br>
+                                                        <?php endforeach; ?>
+                                                    </td>
+                                                    <td>
+                                                        <a href="<?= base_url('sectionallocation/edit/'. $classId) ?>"
+                                                            class="btn btn-success">Edit</a>
+                                                        <a href="<?= base_url('sectionallocation/delete/' . $classId) ?>"
+                                                            class="btn btn-danger">Delete</a>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                            }
+                                            $i++;
+                                            ?>
+                                        </tbody>
+                                    </table>
+
                                 </div>
                             </div>
                         </div> <!-- end col -->

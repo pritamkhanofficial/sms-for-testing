@@ -73,8 +73,59 @@
                                         </div>
                                 <?php } ?>
                                 <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4 class="card-title">View Class</h4>
+                                        </div>
 
-                                   
+                                        <div class="col-md-6 d-flex justify-content-end mb-2">
+                                            <a class="btn btn-success btn-md" href="<?= base_url('class/add') ?>"><i
+                                                    class="fas fa-plus"></i>
+                                                Add</a>
+                                        </div>
+                                    </div>
+
+
+                                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                        <thead>
+                                            <tr>
+                                                <th>Sl. No</th>
+                                                <th>Class Name</th>
+                                                <th>Numeric Name</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+
+
+                                        <tbody>
+                                            <?php
+                                            $i = 1;
+                                            foreach ($classes as $class) {
+                                                ?>
+                                                <tr>
+                                                    <td>
+                                                        <?= $i ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $class['class_name'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $class['numeric_name'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <a href="<?= base_url('class/edit/' . $class['id']) ?>"
+                                                            class="btn btn-success">Edit</a>
+                                                        <a href="<?= base_url('class/delete/' . $class['id']) ?>"
+                                                            class="btn btn-danger">Delete</a>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                            }
+                                            $i++;
+                                            ?>
+                                        </tbody>
+                                    </table>
+
                                 </div>
                             </div>
                         </div> <!-- end col -->

@@ -59,7 +59,6 @@
                         </div>
                     </div>
                     <!-- end page title -->
-
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
@@ -74,7 +73,28 @@
                                 <?php } ?>
                                 <div class="card-body">
 
-                                   
+                                    <h4 class="card-title mb-3">Edit Section</h4>
+                                    <form action="<?= base_url('section/update/'.$section['id']) ?>" method='POST' ,
+                                        enctype="multipart/form-data">
+
+                                        <div class="mb-3 row">
+                                            <label for="" class="col-md-2 col-form-label">Section Name</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="text" value="<?=$section['section_name']?>" name='section'
+                                                    placeholder="Enter Section Name">
+                                            </div>
+                                            <div class="text-danger">
+                                                <?php echo $session->getFlashdata('name_error'); ?>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row mb-3 text-center mt-4">
+                                            <div>
+                                                <button type="submit" class="btn btn-success">Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div> <!-- end col -->

@@ -90,13 +90,15 @@ class User extends BaseController
             'updated_by' => $id,
             'updated_at' => date('Y-m-d H:i:s'),
         ];
-
+        $image_data = $authModel->getImage($id);
+        // echo $image_data->profile_pic ; die; 
+        // echo base_url() . UPLOAD_PATH; die;
         if (isset($img)) {
             if ($img->isValid() && !$img->hasMoved()) {
                 $newImg = $img->getRandomName();
                 if ($img->move(UPLOAD_PATH, $newImg)) {
                     $data['profile_pic'] = $newImg;
-                    @unlink(base_url() . UPLOAD_PATH . $data['profile_pic']);
+                    @unlink('uploads/' . $image_data->profile_pic);
                 }
             }
         }

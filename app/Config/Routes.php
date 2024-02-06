@@ -20,3 +20,28 @@ $routes->post('/update_profile','User::Profile_update', ['filter' => 'authfilter
 $routes->get('/change_password','User::PasswordChange', ['filter' => 'authfilter']);
 
 $routes->post('/setnewpass','User::updatePass',['filter' => 'authfilter']);
+
+////// class route ///////
+$routes->get('/class/add', 'Classes::index',['filter' => 'authfilter']);
+$routes->post('/class/store', 'Classes::storeData', ['filter' => 'authfilter']);
+$routes->get('/class/view', 'Classes::viewData', ['filter' => 'authfilter']);
+$routes->get('/class/edit/(:num)', 'Classes::editData/$1', ['filter' => 'authfilter']);
+$routes->post('/class/update/(:num)','Classes::updateData/$1', ['filter' => 'authfilter']);
+$routes->get('/class/delete/(:num)','Classes::deleteData/$1', ['filter' => 'authfilter']);
+
+/////// section route ///////
+$routes->get('/section/add', 'Section::index', ['filter'=>'authfilter']);
+$routes->post('section/store', 'Section::storeData', ['filter' => 'authfilter']);
+$routes->get('/section/view','Section::viewData',['filter' => 'authfilter']);
+$routes->get('/section/edit/(:num)','Section::editData/$1', ['filter' => 'authfilter']);
+$routes->post('section/update/(:num)','Section::updateData/$1', ['filter' => 'authfilter']);
+$routes->get('section/delete/(:num)','Section::deleteData/$1', ['filter' => 'authfilter']);
+
+
+/////////   section allocation route //////////////
+$routes->get('/sectionallocation/add', 'SectionAllocation::index',['filter' => 'authfilter']);
+$routes->post('/sectionallocation/store', 'SectionAllocation::storeData',['filter' => 'authfilter']);
+$routes->get('/sectionallocation/view', 'SectionAllocation::viewData', ['filter' => 'authfilter']);
+$routes->get('/sectionallocation/edit/(:num)', 'SectionAllocation::editData/$1', ['filter' => 'authfilter']);
+$routes->post('sectionallocation/update/(:num)', 'SectionAllocation::updateData/$1', ['filter' => 'authfilter']);
+$routes->get('sectionallocation/delete/(:num)' , 'SectionAllocation::deleteData/$1', ['filter' => 'authfilter']);

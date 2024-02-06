@@ -74,7 +74,52 @@
                                 <?php } ?>
                                 <div class="card-body">
 
-                                   
+                                    <h4 class="card-title mb-3">Edit Section Allocation</h4>
+                                    <form action="<?= base_url('sectionallocation/update/' . $class_id) ?>" method='POST' ,
+                                        enctype="multipart/form-data">
+
+                                        <div class="mb-3 row">
+                                            <label for="" class="col-md-2 col-form-label">Select Class</label>
+                                            <div class="col-md-10">
+                                                <select name="class" id="" class="form-control">
+                                                    <option value="">Select</option>
+                                                    <?php foreach ($classes as $class) { ?>
+                                                        <option value="<?= $class->id ?>" <?=($class_id == $class->id) ? 'selected' : ''?>>
+                                                            <?= $class->class_name ?>
+                                                        </option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="text-danger">
+                                                <?php echo $session->getFlashdata('class_error'); ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3 row">
+                                            <label for="" class="col-md-2 col-form-label">Select Section</label>
+                                            <div class="col-md-10">
+                                                <select name="sections[]" id="section" class="form-control section"
+                                                    multiple="multiple">
+                                                    <option value="">Select</option>
+                                                    <?php foreach ($sections as $section) { ?>
+                                                        <option value="<?= $section->id ?>" <?= (in_array($section->id , $sections_id)) ? 'selected' : '';?>>
+                                                            <?= $section->section_name ?>
+                                                        </option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="text-danger">
+                                                <?php echo $session->getFlashdata('section_error'); ?>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row mb-3 text-center mt-4">
+                                            <div>
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div> <!-- end col -->
@@ -99,6 +144,12 @@
     <?php
     echo view('includes/script');
     ?>
+    <script>
+        $(document).ready(function () {
+            $('.section').select2();
+        });
+    </script>
+
 </body>
 
 
