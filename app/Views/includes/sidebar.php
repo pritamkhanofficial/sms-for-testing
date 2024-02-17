@@ -41,7 +41,7 @@
                     </ul>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-layout"></i>
                         <span key="t-layouts">Section Allocation</span>
@@ -50,7 +50,7 @@
                         <li><a href="<?= base_url('sectionallocation/add') ?>" key="t-sidebar">Add Section Allocation</a></li>
                         <li><a href="<?= base_url('sectionallocation/view') ?>" key="t-sidebar">View Section Allocation</a></li>
                     </ul>
-                </li>
+                </li> -->
 
             </ul>
         </div>

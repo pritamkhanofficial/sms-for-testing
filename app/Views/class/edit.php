@@ -75,14 +75,14 @@
                                 <div class="card-body">
 
                                     <h4 class="card-title mb-3">Edit Class</h4>
-                                    <form action="<?= base_url('class/update/' . $classdata['id']) ?>" method='POST' ,
+                                    <form action="<?= base_url('class/update/' . $class_id) ?>" method='POST' ,
                                         enctype="multipart/form-data">
 
                                         <div class="mb-3 row">
                                             <label for="" class="col-md-2 col-form-label">Class Name</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" type="text"
-                                                    value="<?= $classdata['class_name']; ?>" name='class'
+                                                    value="<?= $class_name; ?>" name='class'
                                                     placeholder="Enter Class Name in Roman">
                                             </div>
                                             <div class="text-danger">
@@ -94,13 +94,32 @@
                                             <label for="" class="col-md-2 col-form-label">Numeric Name</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" type="number"
-                                                    value="<?= $classdata['numeric_name'] ?>" name='numeric'
+                                                    value="<?= $numeric_name ?>" name='numeric'
                                                     placeholder="Enter Numeric Number of Class">
                                             </div>
                                             <div class="text-danger">
                                                 <?php echo $session->getFlashdata('numeric_error'); ?>
                                             </div>
                                         </div>
+
+                                        <div class="mb-3 row">
+                                            <label for="" class="col-md-2 col-form-label">Select Section</label>
+                                            <div class="col-md-10">
+                                                <select name="sections[]" id="section" class="form-control section"
+                                                    multiple="multiple">
+                                                    <option value="">Select</option>
+                                                    <?php foreach ($sections as $section) { ?>
+                                                        <option value="<?= $section->id ?>" <?= (in_array($section->id , $sections_id)) ? 'selected' : '';?>>
+                                                            <?= $section->section_name ?>
+                                                        </option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="text-danger">
+                                                <?php echo $session->getFlashdata('section_error'); ?>
+                                            </div>
+                                        </div>
+
 
 
                                         <div class="row mb-3 text-center mt-4">
@@ -133,6 +152,12 @@
     <?php
     echo view('includes/script');
     ?>
+
+    <script>
+        $(document).ready(function () {
+            $('.section').select2();
+        });
+    </script>
 </body>
 
 

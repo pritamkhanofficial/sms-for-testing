@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class SectionallocationModel extends Model
+class SectionAllocationModel extends Model
 {
     protected $table = 'section_allocation';
     protected $primaryKey = 'id';
@@ -49,23 +49,23 @@ class SectionallocationModel extends Model
         return $this->db->table('section')->get()->getResult();
     }
 
-    public function getData()
-    {
-        return $this->db->table('section_allocation')
-            ->join('class', 'class.id = section_allocation.class_id')
-            ->join('section', 'section.id = section_allocation.section_id')->get()->getResult();
-    }
+    // public function getData()
+    // {
+    //     return $this->db->table('section_allocation')
+    //         ->join('class', 'class.id = section_allocation.class_id')
+    //         ->join('section', 'section.id = section_allocation.section_id')->get()->getResult();
+    // }
 
-    public function getDatabyId($id)
-    {
-       return $this->where('class_id' , $id)->findAll();
-    }
+    // public function getDatabyId($id)
+    // {
+    //    return $this->where('class_id' , $id)->findAll();
+    // }
 
-    public function deleteAddedData($id, $section_val){
-        return $this->where('class_id', $id)->where('section_id' , $section_val)->delete();
-    }
+    // public function deleteAddedData($id, $section_val){
+    //     return $this->where('class_id', $id)->where('section_id' , $section_val)->delete();
+    // }
 
-    public function deleteData($id){
-        return $this->where('class_id', $id)->delete();
-    }
+    // public function deleteData($id){
+    //     return $this->where('class_id', $id)->delete();
+    // }
 }

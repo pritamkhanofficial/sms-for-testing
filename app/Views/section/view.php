@@ -115,7 +115,7 @@
                                                         <a href="<?= base_url('section/edit/' . $data['id']) ?>"
                                                             class="btn btn-success">Edit</a>
                                                         <a href="<?= base_url('section/delete/' . $data['id']) ?>"
-                                                            class="btn btn-danger">Delete</a>
+                                                            class="btn btn-danger" onclick="alert('Do You Want to Delete?');">Delete</a>
                                                     </td>
                                                 </tr>
                                                 <?php

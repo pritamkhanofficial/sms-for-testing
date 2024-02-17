@@ -92,6 +92,7 @@
                                                 <th>Sl. No</th>
                                                 <th>Class Name</th>
                                                 <th>Numeric Name</th>
+                                                <th>Sections</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -100,23 +101,29 @@
                                         <tbody>
                                             <?php
                                             $i = 1;
-                                            foreach ($classes as $class) {
+                                            foreach ($allocationData as $classId => $classData) {
                                                 ?>
                                                 <tr>
                                                     <td>
                                                         <?= $i ?>
                                                     </td>
                                                     <td>
-                                                        <?= $class['class_name'] ?>
+                                                        <?= $classData['class_name'] ?>
                                                     </td>
                                                     <td>
-                                                        <?= $class['numeric_name'] ?>
+                                                        <?= $classData['numeric_name'] ?>
                                                     </td>
                                                     <td>
-                                                        <a href="<?= base_url('class/edit/' . $class['id']) ?>"
+                                                        <?php foreach ($classData['sections'] as $section): ?>
+                                                            -
+                                                            <?= $section ?><br>
+                                                        <?php endforeach; ?>
+                                                    </td>
+                                                    <td>
+                                                        <a href="<?= base_url('class/edit/' . $classId) ?>"
                                                             class="btn btn-success">Edit</a>
-                                                        <a href="<?= base_url('class/delete/' . $class['id']) ?>"
-                                                            class="btn btn-danger">Delete</a>
+                                                        <a href="<?= base_url('class/delete/' . $classId) ?>"
+                                                            class="btn btn-danger" onclick="alert('Do You Want to Delete?')";>Delete</a>
                                                     </td>
                                                 </tr>
                                                 <?php
