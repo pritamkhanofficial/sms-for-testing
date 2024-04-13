@@ -52,6 +52,19 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-layout"></i>
+                        <span key="t-layouts">Subject Allocation</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="<?= base_url('subjectallocation/add') ?>" key="t-sidebar">Add Subject
+                                Allocation</a></li>
+                        <li><a href="<?= base_url('subjectallocation/view') ?>" key="t-sidebar">View Subject
+                                Allocation</a></li>
+                    </ul>
+                </li>
+
                 <!-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-layout"></i>
