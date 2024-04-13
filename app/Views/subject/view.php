@@ -60,6 +60,9 @@
                     </div>
                     <!-- end page title -->
 
+                    <?php
+                    $session = session();
+                    ?>
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
@@ -75,11 +78,11 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h4 class="card-title">View Class</h4>
+                                            <h4 class="card-title">View Subject</h4>
                                         </div>
 
                                         <div class="col-md-6 d-flex justify-content-end mb-2">
-                                            <a class="btn btn-success btn-md" href="<?= base_url('class/add') ?>"><i
+                                            <a class="btn btn-success btn-md" href="<?= base_url('subject/add') ?>"><i
                                                     class="fas fa-plus"></i>
                                                 Add</a>
                                         </div>
@@ -90,9 +93,9 @@
                                         <thead>
                                             <tr>
                                                 <th>Sl. No</th>
-                                                <th>Class Name</th>
-                                                <th>Numeric Name</th>
-                                                <th>Sections</th>
+                                                <th>Subject Name</th>
+                                                <th>Subject Code</th>
+                                                <th>Subject Type</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -101,30 +104,38 @@
                                         <tbody>
                                             <?php
                                             $i = 1;
-                                            foreach ($allocationData as $classId => $classData) {
+                                            foreach ($subjects as $data) {
                                                 ?>
                                                 <tr>
                                                     <td>
                                                         <?= $i ?>
                                                     </td>
                                                     <td>
-                                                        <?= $classData['class_name'] ?>
+                                                        <?= $data['subject_name'] ?>
                                                     </td>
+
                                                     <td>
-                                                        <?= $classData['numeric_name'] ?>
+                                                        <?= $data['subject_code'] ?>
                                                     </td>
+
                                                     <td>
-                                                        <?php foreach ($classData['sections'] as $section): ?>
-                                                            -
-                                                            <?= $section ?><br>
-                                                        <?php endforeach; ?>
+                                                        <?php if ($data['subject_type'] == 'theory') {
+                                                            echo 'Theory';
+                                                        } else if ($data['subject_type'] == 'practical') {
+                                                            echo 'Practical';
+                                                        } else if ($data['subject_type'] == 'mandatory') {
+                                                            echo 'Mandatory';
+                                                        } else {
+                                                            echo $data['subject_type'];
+                                                        } ?>
                                                     </td>
+
                                                     <td>
-                                                        <a href="<?= base_url('class/edit/' . $classId) ?>"
+                                                        <a href="<?= base_url('subject/edit/' . $data['id']) ?>"
                                                             class="btn btn-success">Edit</a>
-                                                        <a href="<?= base_url('class/delete/' . $classId) ?>"
+                                                        <a href="<?= base_url('subject/delete/' . $data['id']) ?>"
                                                             class="btn btn-danger"
-                                                            onclick="return confirm('Do You Want to Delete?')" ;>Delete</a>
+                                                            onclick="return confirm('Do You Want to Delete?');">Delete</a>
                                                     </td>
                                                 </tr>
                                                 <?php

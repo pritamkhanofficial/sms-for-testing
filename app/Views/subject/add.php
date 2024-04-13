@@ -59,10 +59,6 @@
                         </div>
                     </div>
                     <!-- end page title -->
-
-                    <?php
-                    $session = session();
-                    ?>
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
@@ -76,56 +72,55 @@
                                         </div>
                                 <?php } ?>
                                 <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h4 class="card-title">View Section</h4>
+
+                                    <h4 class="card-title mb-3">Add Subject</h4>
+                                    <form action="<?= base_url('subject/store') ?>" method='POST' ,
+                                        enctype="multipart/form-data">
+
+                                        <div class="mb-3 row">
+                                            <label for="" class="col-md-2 col-form-label">Subject Name</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="text" value="" name='sub_name'
+                                                    placeholder="Enter Subject Name">
+                                            </div>
+                                            <div class="text-danger">
+                                                <?php echo $session->getFlashdata('name_error'); ?>
+                                            </div>
                                         </div>
 
-                                        <div class="col-md-6 d-flex justify-content-end mb-2">
-                                            <a class="btn btn-success btn-md" href="<?= base_url('section/add') ?>"><i
-                                                    class="fas fa-plus"></i>
-                                                Add</a>
+                                        <div class="mb-3 row">
+                                            <label for="" class="col-md-2 col-form-label">Subject Code</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="text" value="" name='sub_code'
+                                                    placeholder="Enter Subject Code">
+                                            </div>
+                                            <div class="text-danger">
+                                                <?php echo $session->getFlashdata('code_error'); ?>
+                                            </div>
                                         </div>
-                                    </div>
+
+                                        <div class="mb-3 row">
+                                            <label for="" class="col-md-2 col-form-label">Subject Type</label>
+                                            <div class="col-md-10">
+                                                <select name="sub_type" id="" class="form-control">
+                                                    <option value="">--Select--</option>
+                                                    <option value="theory">Theory</option>
+                                                    <option value="practical">Practical</option>
+                                                    <option value="mandatory">Mandatory</option>
+                                                </select>
+                                            </div>
+                                            <div class="text-danger">
+                                                <?php echo $session->getFlashdata('type_error'); ?>
+                                            </div>
+                                        </div>
 
 
-                                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                        <thead>
-                                            <tr>
-                                                <th>Sl. No</th>
-                                                <th>Section Name</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-
-
-                                        <tbody>
-                                            <?php
-                                            $i = 1;
-                                            foreach ($sections as $data) {
-                                                ?>
-                                                <tr>
-                                                    <td>
-                                                        <?= $i ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $data['section_name'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <a href="<?= base_url('section/edit/' . $data['id']) ?>"
-                                                            class="btn btn-success">Edit</a>
-                                                        <a href="<?= base_url('section/delete/' . $data['id']) ?>"
-                                                            class="btn btn-danger" onclick="return confirm('Do You Want to Delete?');">Delete</a>
-                                                    </td>
-                                                </tr>
-                                                <?php
-                                                $i++;
-                                            }
-                                            
-                                            ?>
-                                        </tbody>
-                                    </table>
-
+                                        <div class="row mb-3 text-center mt-4">
+                                            <div>
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div> <!-- end col -->

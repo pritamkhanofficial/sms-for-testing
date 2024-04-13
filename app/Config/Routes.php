@@ -38,10 +38,40 @@ $routes->post('section/update/(:num)','Section::updateData/$1', ['filter' => 'au
 $routes->get('section/delete/(:num)','Section::deleteData/$1', ['filter' => 'authfilter']);
 
 
+/////// subject route ///////
+$routes->get('/subject/add', 'Subject::index', ['filter'=>'authfilter']);
+$routes->post('subject/store', 'Subject::storeData', ['filter' => 'authfilter']);
+$routes->get('/subject/view','Subject::viewData',['filter' => 'authfilter']);
+$routes->get('/subject/edit/(:num)','Subject::editData/$1', ['filter' => 'authfilter']);
+$routes->post('subject/update/(:num)','Subject::updateData/$1', ['filter' => 'authfilter']);
+$routes->get('subject/delete/(:num)','Subject::deleteData/$1', ['filter' => 'authfilter']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /////////   section allocation route //////////////
-$routes->get('/sectionallocation/add', 'SectionAllocation::index',['filter' => 'authfilter']);
-$routes->post('/sectionallocation/store', 'SectionAllocation::storeData',['filter' => 'authfilter']);
-$routes->get('/sectionallocation/view', 'SectionAllocation::viewData', ['filter' => 'authfilter']);
-$routes->get('/sectionallocation/edit/(:num)', 'SectionAllocation::editData/$1', ['filter' => 'authfilter']);
-$routes->post('sectionallocation/update/(:num)', 'SectionAllocation::updateData/$1', ['filter' => 'authfilter']);
-$routes->get('sectionallocation/delete/(:num)' , 'SectionAllocation::deleteData/$1', ['filter' => 'authfilter']);
+// $routes->get('/sectionallocation/add', 'SectionAllocation::index',['filter' => 'authfilter']);
+// $routes->post('/sectionallocation/store', 'SectionAllocation::storeData',['filter' => 'authfilter']);
+// $routes->get('/sectionallocation/view', 'SectionAllocation::viewData', ['filter' => 'authfilter']);
+// $routes->get('/sectionallocation/edit/(:num)', 'SectionAllocation::editData/$1', ['filter' => 'authfilter']);
+// $routes->post('sectionallocation/update/(:num)', 'SectionAllocation::updateData/$1', ['filter' => 'authfilter']);
+// $routes->get('sectionallocation/delete/(:num)' , 'SectionAllocation::deleteData/$1', ['filter' => 'authfilter']);
