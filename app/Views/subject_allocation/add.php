@@ -75,14 +75,13 @@
                                 <div class="card-body">
 
                                     <h4 class="card-title mb-3">Add Subject Allocation</h4>
-                                    <form action="<?= base_url('class/store') ?>" method='POST' ,
+                                    <form action="<?= base_url('subjectallocation/store') ?>" method='POST' ,
                                         enctype="multipart/form-data">
 
                                         <div class="mb-3 row">
                                             <label for="" class="col-md-2 col-form-label">Select Class</label>
                                             <div class="col-md-10">
-                                                <select name="class" id="class" class="form-control class"
-                                                    onchange="getSection();">
+                                                <select name="class" id="class" class="form-control class">
                                                     <option value="">Select</option>
                                                     <?php foreach ($classes as $class) { ?>
                                                         <option value="<?= $class['id'] ?>">
@@ -92,14 +91,14 @@
                                                 </select>
                                             </div>
                                             <div class="text-danger">
-                                                <?php echo $session->getFlashdata('section_error'); ?>
+                                                <?php echo $session->getFlashdata('class_error'); ?>
                                             </div>
                                         </div>
 
                                         <div class="mb-3 row">
                                             <label for="" class="col-md-2 col-form-label">Select Section</label>
                                             <div class="col-md-10">
-                                                <select name="section" id="section" class="form-control">
+                                                <select name="section" id="sections" class="form-control sections">
                                                     <option value="">First Select Class</option>
 
                                                 </select>
@@ -115,11 +114,15 @@
                                                 <select name="subjects[]" id="subject" class="form-control subject"
                                                     multiple="multiple">
                                                     <option value="">Select</option>
-
+                                                    <?php foreach ($subjects as $subject) { ?>
+                                                        <option value="<?= $subject['id'] ?>">
+                                                            <?= $subject['subject_name'] ?>
+                                                        </option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                             <div class="text-danger">
-                                                <?php echo $session->getFlashdata('section_error'); ?>
+                                                <?php echo $session->getFlashdata('subject_error'); ?>
                                             </div>
                                         </div>
 
@@ -156,26 +159,22 @@
     ?>
 
     <script>
-        function getSection() {
-            var class_id = document.getElementById("class").value;
-
-            $.ajax({
-                url: '<?= base_url('get-section') ?>',
-                method: 'POST',
-                dataType: 'json',
-                data: {
-                    class_id: class_id
-                },
-                success: function (response) {
-                    document.getElementById('section').html = response;
-                },
-                error: function (xhr, status, error) {
-                    // Request failed
-                    console.error('Request failed with status:', status);
-                }
+        $(document).ready(function () {
+            $('#class').change(function () {
+                var class_id = $(this).val();
+                $.ajax({
+                    url: '<?= base_url('get-sections') ?>',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: {
+                        class_id: class_id
+                    },
+                    success: function (response) {
+                        $('#sections').html(response.options);
+                    }
+                });
             });
-
-        }
+        });
     </script>
 
     <script>

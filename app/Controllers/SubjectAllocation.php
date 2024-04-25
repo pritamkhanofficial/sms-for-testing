@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\SubjectModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\ClassesModel;
 use App\Models\SectionModel;
@@ -17,7 +18,11 @@ class SubjectAllocation extends BaseController
 
         $data['classes'] = $model->findAll();
 
-        // print_r($data['classes']);
+        $subjectModel = new SubjectModel();
+
+        $data['subjects'] = $subjectModel->findAll();
+
+        // print_r($data['subjects']); die;
 
         return view('subject_allocation/add', $data);
     }
@@ -25,17 +30,78 @@ class SubjectAllocation extends BaseController
     public function getSection()
     {
         $model = new SubjectAllocationModel();
-
         $class_id = $this->request->getVar('class_id');
+        $sections = $model->getSection($class_id);
 
-        $datas = $model->getSection($class_id);
-
-        $dropdown = '<option value="">Select Section </option>';
-
-        foreach ($datas as $data) {
-            $dropdown .= '<option value="' . $data->section_id . '">' . $data->section_name . '</option>';
+        $options = '<option value="">Select Section</option>';
+        foreach ($sections as $section) {
+            $options .= '<option value="' . $section->id . '">' . $section->section_name . '</option>';
         }
 
-        echo json_encode(['data' => $dropdown]);
+        return json_encode(['options' => $options]);
     }
+
+    public function storeData()
+    {
+        $session = session();
+
+        $rules = [
+            'class' => [
+                'label' => 'Class',
+                'rules' => 'required',
+            ],
+
+            'section' => [
+                'label' => 'Section',
+                'rules' => 'required'
+            ],
+
+            'subjects' => [
+                'label' => 'Subject',
+                'rules' => 'required'
+            ]
+        ];
+
+        if (!$this->validate($rules)) {
+            $errors = $this->validator->getErrors();
+            if (isset($errors['section'])) {
+                $session->setFlashdata('section_error', $errors['section']);
+            }
+            if (isset($errors['class'])) {
+                $session->setFlashdata('class_error', $errors['class']);
+            }
+            if (isset($errors['subjects'])) {
+                $session->setFlashdata('subject_error', $errors['subjects']);
+            }
+            return redirect()->to('subjectallocation/add');
+        }
+
+        $model = new SubjectAllocationModel();
+
+        $userdata = $this->request->user;
+        $userid = $userdata['id'];
+
+        $data = [
+            'class_id' => $this->request->getVar('class'),
+            'section_id' => $this->request->getVar('section'),
+            'subjects' => $this->request->getVar('subjects'),
+            'user_id' => $userid
+        ];
+
+        $result = $model->insertData($data);
+
+        if ($result) {
+            $session->setFlashdata('success', 'Subject Allocated Successfully!!');
+            return redirect()->to('subjectallocation/view');
+        } else {
+            $session->setFlashdata('error', 'OOPS: Something Went Wrong!!');
+            return redirect()->to('subjectallocation/add');
+        }
+    }
+
+    public function viewData()
+    {
+
+    }
+
 }

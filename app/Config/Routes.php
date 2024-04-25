@@ -53,14 +53,9 @@ $routes->get('subject/delete/(:num)', 'Subject::deleteData/$1', ['filter' => 'au
 $routes->get('/subjectallocation/add', 'SubjectAllocation::index', ['filter' => 'authfilter']);
 $routes->post('/subjectallocation/store', 'SubjectAllocation::storeData', ['filter' => 'authfilter']);
 $routes->get('/subjectallocation/view', 'SubjectAllocation::viewData', ['filter' => 'authfilter']);
-$routes->get('/subjectallocation/edit/(:num)', 'SubjectAllocation::editData/$1', ['filter' => 'authfilter']);
-$routes->post('subjectallocation/update/(:num)', 'SubjectAllocation::updateData/$1', ['filter' => 'authfilter']);
-$routes->get('subjectallocation/delete/(:num)', 'SubjectAllocation::deleteData/$1', ['filter' => 'authfilter']);
 
 
-
-
-$routes->post('/get-section', 'SubjectAllocation::getSection', ['filter' => 'authfilter']);
+$routes->post('/get-sections', 'SubjectAllocation::getSection', ['filter' => 'authfilter']);
 
 
 
