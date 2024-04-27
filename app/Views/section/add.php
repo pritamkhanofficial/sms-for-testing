@@ -74,7 +74,7 @@
                                 <div class="card-body">
 
                                     <h4 class="card-title mb-3">Add Section</h4>
-                                    <form action="<?= base_url('section/store') ?>" method='POST' ,
+                                    <form action="<?= base_url('back-panel/section-store') ?>" method='POST' ,
                                         enctype="multipart/form-data">
 
                                         <div class="mb-3 row">

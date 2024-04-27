@@ -25,8 +25,8 @@
                         <span key="t-layouts">Section</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="<?= base_url('section/add') ?>" key="t-sidebar">Add Section</a></li>
-                        <li><a href="<?= base_url('section/view') ?>" key="t-sidebar">View Section</a></li>
+                        <li><a href="<?= base_url('back-panel/section-add') ?>" key="t-sidebar">Add Section</a></li>
+                        <li><a href="<?= base_url('back-panel/section-view') ?>" key="t-sidebar">View Section</a></li>
                     </ul>
                 </li>
 

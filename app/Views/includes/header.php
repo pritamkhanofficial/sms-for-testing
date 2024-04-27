@@ -226,20 +226,12 @@
                     </div>
 
                     <div class="dropdown d-inline-block">
-                        <?php
-                        $session = session();
-                        $user = $session->user;
-                        $userId = $user['id'];
-                        $db = \Config\Database::connect();
-                        $query = $db->query("SELECT * FROM users WHERE id = ?", [$userId]);
-                        $profile = $query->getRow();
-                        ?>
-
+                        
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle header-profile-user"
-                                src="<?= base_url('uploads/' . $profile->profile_pic) ?>" alt="Header Avatar">
-                            <span class="d-none d-xl-inline-block ms-1" key="t-henry"><?=$profile->full_name?></span>
+                                src="<?= getBUD()->user_profile_pic ?>" alt="Header Avatar">
+                            <span class="d-none d-xl-inline-block ms-1" key="t-henry"><?= getBUD()->full_name?></span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">

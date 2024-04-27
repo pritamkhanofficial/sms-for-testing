@@ -5,16 +5,17 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\SectionModel;
 use CodeIgniter\HTTP\ResponseInterface;
+use App\Libraries\GroceryCrud;
 
-class Section extends BaseController
+class SectionController extends BaseController
 {
-    public function index()
+    public function section_add()
     {
        
-        return view('section/add.php');
+        return view('section/add');
     }
 
-    public function storeData()
+    public function store_data()
     {
         $section_name = $this->request->getVar('section');
 
@@ -35,7 +36,8 @@ class Section extends BaseController
         }
 
         $userdata = $this->request->user;
-        $userid = $userdata['id'];
+        // getPrint($userdata);
+        $userid = $userdata->id;
 
         $sectionModel = new SectionModel();
 
@@ -48,14 +50,14 @@ class Section extends BaseController
         $result = $sectionModel->store($data);
         if ($result) {
             $session->setFlashdata('success', 'Section Added Successfully!!');
-            return redirect()->to('section/view');
+            return redirect()->to('back-panel/section-view');
         } else {
             $session->setFlashdata('error', 'OOPS: Something Went Wrong!!');
-            return redirect()->to('section/add');
+            return redirect()->to('back-panel/section-add');
         }
     }
 
-    public function viewData()
+    public function section_view()
     {
         $sectionModel = new SectionModel();
 
