@@ -9,20 +9,6 @@ use App\Libraries\GroceryCrud;
 
 class MasterController extends BaseController
 {
-    public function section_add()
-    {
-        return view('section/add.php');
-    }
-
-    public function section_view()
-    {
-        // $Mastermodel = new Mastermodel();
-
-        // $data['sections'] = $Mastermodel->getData();
-        // print_r($data['sections']); die;
-        // return view('section/view', $data);
-    }
-
     public function class()
     {
 
