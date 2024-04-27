@@ -15,11 +15,11 @@ class MasterController extends BaseController
 
     public function section_view()
     {
-        $Mastermodel = new Mastermodel();
+        // $Mastermodel = new Mastermodel();
 
-        $data['sections'] = $Mastermodel->getData();
+        // $data['sections'] = $Mastermodel->getData();
         // print_r($data['sections']); die;
-        return view('section/view', $data);
+        // return view('section/view', $data);
     }
 
 }

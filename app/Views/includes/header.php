@@ -7,19 +7,19 @@
                     <div class="navbar-brand-box">
                         <a href="index.html" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="<?= base_url(); ?>assets/images/logo.svg" alt="" height="22">
+                                <img src="<?= base_url(); ?>back/images/logo.svg" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="<?= base_url(); ?>assets/images/logo-dark.png" alt="" height="17">
+                                <img src="<?= base_url(); ?>back/images/logo-dark.png" alt="" height="17">
                             </span>
                         </a>
 
                         <a href="index.html" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="<?= base_url(); ?>assets/images/logo-light.svg" alt="" height="22">
+                                <img src="<?= base_url(); ?>back/images/logo-light.svg" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="<?= base_url(); ?>assets/images/logo-light.png" alt="" height="19">
+                                <img src="<?= base_url(); ?>back/images/logo-light.png" alt="" height="19">
                             </span>
                         </a>
                     </div>
@@ -76,20 +76,20 @@
                                 <div class="row g-0">
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="<?= base_url(); ?>assets/images/brands/github.png" alt="Github">
+                                            <img src="<?= base_url(); ?>back/images/brands/github.png" alt="Github">
                                             <span>GitHub</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="<?= base_url(); ?>assets/images/brands/bitbucket.png"
+                                            <img src="<?= base_url(); ?>back/images/brands/bitbucket.png"
                                                 alt="bitbucket">
                                             <span>Bitbucket</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="<?= base_url(); ?>assets/images/brands/dribbble.png"
+                                            <img src="<?= base_url(); ?>back/images/brands/dribbble.png"
                                                 alt="dribbble">
                                             <span>Dribbble</span>
                                         </a>
@@ -99,20 +99,20 @@
                                 <div class="row g-0">
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="<?= base_url(); ?>assets/images/brands/dropbox.png" alt="dropbox">
+                                            <img src="<?= base_url(); ?>back/images/brands/dropbox.png" alt="dropbox">
                                             <span>Dropbox</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="<?= base_url(); ?>assets/images/brands/mail_chimp.png"
+                                            <img src="<?= base_url(); ?>back/images/brands/mail_chimp.png"
                                                 alt="mail_chimp">
                                             <span>Mail Chimp</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="<?= base_url(); ?>assets/images/brands/slack.png" alt="slack">
+                                            <img src="<?= base_url(); ?>back/images/brands/slack.png" alt="slack">
                                             <span>Slack</span>
                                         </a>
                                     </div>
@@ -168,7 +168,7 @@
                                 </a>
                                 <a href="javascript: void(0);" class="text-reset notification-item">
                                     <div class="d-flex">
-                                        <img src="<?= base_url(); ?>assets/images/users/avatar-3.jpg"
+                                        <img src="<?= base_url(); ?>back/images/users/avatar-3.jpg"
                                             class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                         <div class="flex-grow-1">
                                             <h6 class="mb-1">James Lemire</h6>
@@ -202,7 +202,7 @@
 
                                 <a href="javascript: void(0);" class="text-reset notification-item">
                                     <div class="d-flex">
-                                        <img src="<?= base_url(); ?>assets/images/users/avatar-4.jpg"
+                                        <img src="<?= base_url(); ?>back/images/users/avatar-4.jpg"
                                             class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                         <div class="flex-grow-1">
                                             <h6 class="mb-1">Salena Layfield</h6>
