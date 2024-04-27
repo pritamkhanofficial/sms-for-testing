@@ -13,7 +13,7 @@
     <meta content="Themesbrand" name="author" />
 
     <?php
-    echo view('includes/head');
+    echo view('component/back/head');
     ?>
 
 </head>
@@ -27,11 +27,11 @@
 
 
         <?php
-        echo view('includes/header');
+        echo view('component/back/header');
         ?>
 
         <?php
-        echo view('includes/sidebar');
+        echo view('component/back/sidebar');
         ?>
 
         <!-- ============================================================== -->
@@ -85,7 +85,7 @@
             <!-- End Page-content -->
 
             <?php
-            echo view('includes/footer');
+            echo view('component/back/footer');
             ?>
         </div>
         <!-- end main content-->
@@ -97,7 +97,7 @@
     <div class="rightbar-overlay"></div>
 
     <?php
-    echo view('includes/script');
+    echo view('component/back/script');
     ?>
 </body>
 

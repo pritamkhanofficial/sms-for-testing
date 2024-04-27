@@ -19,25 +19,25 @@
                     </ul> -->
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-layout"></i>
                         <span key="t-layouts">Section</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="<?= base_url('back-panel/section-add') ?>" key="t-sidebar">Add Section</a></li>
-                        <li><a href="<?= base_url('back-panel/section-view') ?>" key="t-sidebar">View Section</a></li>
+                        <li><a href="< ?= base_url('back-panel/section-add') ?>" key="t-sidebar">Add Section</a></li>
+                        <li><a href="< ?= base_url('back-panel/section-view') ?>" key="t-sidebar">View Section</a></li>
                     </ul>
-                </li>
+                </li> -->
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-layout"></i>
-                        <span key="t-layouts">Class</span>
+                        <span key="t-layouts">Master</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="<?= base_url('class/add'); ?>" key="t-sidebar">Add Class</a></li>
-                        <li><a href="<?= base_url('class/view'); ?>" key="t-sidebar">View Class</a></li>
+                        <li><a href="<?= base_url('back-panel/master/class'); ?>" key="t-sidebar">Class</a></li>
+                        <li><a href="<?= base_url('back-panel/master/section'); ?>" key="t-sidebar">Section</a></li>
                     </ul>
                 </li>
 

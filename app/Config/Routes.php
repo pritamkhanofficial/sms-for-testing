@@ -22,9 +22,23 @@ $routes->group('back-panel', static function ($routes) {
     $routes->match(['get','post'],'/', 'AuthController::auth');
     $routes->group('',['filter'=>'authFilter'], static function ($routes) {
         $routes->match(['get','post'],'dashboard', 'DashboardController::dashboard');
-        $routes->match(['get','post'],'section-add', 'SectionController::section_add');
+       /*  $routes->match(['get','post'],'section-add', 'SectionController::section_add');
         $routes->match(['get','post'],'section-view', 'SectionController::section_view');
-        $routes->match(['get','post'],'section-store', 'SectionController::store_data');
+        $routes->match(['get','post'],'section-store', 'SectionController::store_data'); */
+
+        $routes->group('master', static function ($routes) {
+
+            $routes->match(['get', 'post'],'class/', 'MasterController::class');
+            $routes->match(['get', 'post'],'class/(:segment)', 'MasterController::class/$1');
+            $routes->match(['get', 'post'],'class/(:segment)/(:segment)', 'MasterController::class/$1/$2');
+
+            $routes->match(['get', 'post'],'section/', 'MasterController::section');
+            $routes->match(['get', 'post'],'section/(:segment)', 'MasterController::section/$1');
+            $routes->match(['get', 'post'],'section/(:segment)/(:segment)', 'MasterController::section/$1/$2');
+
+        });
+
+       
 
 
     });
