@@ -45,11 +45,11 @@
                                 <?= session('msg'); ?>
                             </div>
                             <div class="p-3">
-                                <form class="form-horizontal" action="<?= base_url('/signin') ?>" method='POST'>
+                                <form class="form-horizontal" action="<?= base_url('back-panel') ?>" method='POST'>
 
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Username</label>
-                                        <input type="text" class="form-control" name="username"
+                                        <input type="text" class="form-control" name="username" id="username"
                                             placeholder="Enter username">
                                         <div class="text-danger">
                                             <?php echo $session->getFlashdata('name_error'); ?>
@@ -57,10 +57,10 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Password</label>
+                                        <label class="form-label" for="password">Password</label>
                                         <div class="input-group auth-pass-inputgroup">
                                             <input type="password" class="form-control" placeholder="Enter password"
-                                                aria-label="Password" aria-describedby="password-addon" name="password">
+                                                aria-label="Password" aria-describedby="password-addon" name="password" id="password">
                                             <button class="btn btn-light " type="button" id="password-addon"><i
                                                     class="mdi mdi-eye-outline"></i>
                                             </button>
@@ -71,15 +71,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-check">
+                                    <!-- <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="remember-check">
                                         <label class="form-check-label" for="remember-check">
                                             Remember me
                                         </label>
-                                    </div>
+                                    </div> -->
 
                                     <div class="mt-3 d-grid">
-                                        <button class="btn btn-primary waves-effect waves-light" type="submit">Log
+                                        <button class="btn btn-primary waves-effect waves-light" type="submit" name="login" value="login">Log
                                             In</button>
                                     </div>
 

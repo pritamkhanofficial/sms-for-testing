@@ -6,56 +6,83 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/dashboard', 'Home::index', ['filter' => 'authfilter']);
+$routes->get('/', 'Home::index');
+// $routes->get('/', 'AuthController::index');
+// $routes->group('/',['filter'=>'authFilter','namescape' => 'App\Controller'], static function
+// ($routes){
+//     $routes->get('/dashboard', 'Home::index');
+//     // $routes->get('/', 'AuthController::index');
+//     $routes->post('signin', 'AuthController::signin');
+//     $routes->get('logout', 'AuthController::signout');
+// });
 
-$routes->get('/', 'Auth::index', ['filter' => 'noauthfilter']);
+// back-panel
 
-$routes->post('/signin', 'Auth::signin');
+$routes->group('back-panel', static function ($routes) {
+    $routes->match(['get','post'],'/', 'AuthController::auth');
+    $routes->group('',['filter'=>'authFilter'], static function ($routes) {
+        $routes->match(['get','post'],'dashboard', 'DashboardController::dashboard');
+       /*  $routes->match(['get','post'],'section-add', 'SectionController::section_add');
+        $routes->match(['get','post'],'section-view', 'SectionController::section_view');
+        $routes->match(['get','post'],'section-store', 'SectionController::store_data'); */
 
-$routes->get('/logout', 'Auth::signout');
+        $routes->group('master', static function ($routes) {
 
-$routes->get('/profile_edit', 'User::index', ['filter' => 'authfilter']);
+            $routes->match(['get', 'post'],'class/', 'MasterController::class');
+            $routes->match(['get', 'post'],'class/(:segment)', 'MasterController::class/$1');
+            $routes->match(['get', 'post'],'class/(:segment)/(:segment)', 'MasterController::class/$1/$2');
 
-$routes->post('/update_profile', 'User::Profile_update', ['filter' => 'authfilter']);
+            $routes->match(['get', 'post'],'section/', 'MasterController::section');
+            $routes->match(['get', 'post'],'section/(:segment)', 'MasterController::section/$1');
+            $routes->match(['get', 'post'],'section/(:segment)/(:segment)', 'MasterController::section/$1/$2');
 
-$routes->get('/change_password', 'User::PasswordChange', ['filter' => 'authfilter']);
+        });
 
-$routes->post('/setnewpass', 'User::updatePass', ['filter' => 'authfilter']);
-
-////// class route ///////
-$routes->get('/class/add', 'Classes::index', ['filter' => 'authfilter']);
-$routes->post('/class/store', 'Classes::storeData', ['filter' => 'authfilter']);
-$routes->get('/class/view', 'Classes::viewData', ['filter' => 'authfilter']);
-$routes->get('/class/edit/(:num)', 'Classes::editData/$1', ['filter' => 'authfilter']);
-$routes->post('/class/update/(:num)', 'Classes::updateData/$1', ['filter' => 'authfilter']);
-$routes->get('/class/delete/(:num)', 'Classes::deleteData/$1', ['filter' => 'authfilter']);
-
-/////// section route ///////
-$routes->get('/section/add', 'Section::index', ['filter' => 'authfilter']);
-$routes->post('section/store', 'Section::storeData', ['filter' => 'authfilter']);
-$routes->get('/section/view', 'Section::viewData', ['filter' => 'authfilter']);
-$routes->get('/section/edit/(:num)', 'Section::editData/$1', ['filter' => 'authfilter']);
-$routes->post('section/update/(:num)', 'Section::updateData/$1', ['filter' => 'authfilter']);
-$routes->get('section/delete/(:num)', 'Section::deleteData/$1', ['filter' => 'authfilter']);
-
-
-/////// subject route ///////
-$routes->get('/subject/add', 'Subject::index', ['filter' => 'authfilter']);
-$routes->post('subject/store', 'Subject::storeData', ['filter' => 'authfilter']);
-$routes->get('/subject/view', 'Subject::viewData', ['filter' => 'authfilter']);
-$routes->get('/subject/edit/(:num)', 'Subject::editData/$1', ['filter' => 'authfilter']);
-$routes->post('subject/update/(:num)', 'Subject::updateData/$1', ['filter' => 'authfilter']);
-$routes->get('subject/delete/(:num)', 'Subject::deleteData/$1', ['filter' => 'authfilter']);
+       
 
 
+    });
 
-/////////   section allocation route //////////////
-$routes->get('/subjectallocation/add', 'SubjectAllocation::index', ['filter' => 'authfilter']);
-$routes->post('/subjectallocation/store', 'SubjectAllocation::storeData', ['filter' => 'authfilter']);
-$routes->get('/subjectallocation/view', 'SubjectAllocation::viewData', ['filter' => 'authfilter']);
+    /* $routes->match(['get','post'],'/profile_edit', 'User::index', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/update_profile', 'User::Profile_update', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/change_password', 'User::PasswordChange', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/setnewpass', 'User::updatePass', ['filter' => 'authfilter']);
+
+    ////// class route ///////
+    $routes->match(['get','post'],'/class/add', 'Classes::index', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/class/store', 'Classes::storeData', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/class/view', 'Classes::viewData', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/class/edit/(:num)', 'Classes::editData/$1', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/class/update/(:num)', 'Classes::updateData/$1', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/class/delete/(:num)', 'Classes::deleteData/$1', ['filter' => 'authfilter']);
+
+    /////// section route ///////
+    $routes->match(['get','post'],'/section/add', 'Section::index', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'section/store', 'Section::storeData', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/section/view', 'Section::viewData', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/section/edit/(:num)', 'Section::editData/$1', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'section/update/(:num)', 'Section::updateData/$1', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'section/delete/(:num)', 'Section::deleteData/$1', ['filter' => 'authfilter']);
 
 
-$routes->post('/get-sections', 'SubjectAllocation::getSection', ['filter' => 'authfilter']);
+    /////// subject route ///////
+    $routes->match(['get','post'],'/subject/add', 'Subject::index', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'subject/store', 'Subject::storeData', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/subject/view', 'Subject::viewData', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/subject/edit/(:num)', 'Subject::editData/$1', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'subject/update/(:num)', 'Subject::updateData/$1', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'subject/delete/(:num)', 'Subject::deleteData/$1', ['filter' => 'authfilter']); */
+
+
+
+    /////////   section allocation route //////////////
+    $routes->match(['get','post'],'/subjectallocation/add', 'SubjectAllocation::index', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/subjectallocation/store', 'SubjectAllocation::storeData', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/subjectallocation/view', 'SubjectAllocation::viewData', ['filter' => 'authfilter']);
+
+
+    $routes->match(['get','post'],'/get-sections', 'SubjectAllocation::getSection', ['filter' => 'authfilter']);
+});
 
 
 

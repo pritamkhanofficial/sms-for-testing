@@ -9,14 +9,13 @@ class UserSeeder extends Seeder
     public function run()
     {
         $data = [
-            'username' => 'Ayesa123',
-            'email' => 'ayesa@gmail.com',
-            'password' => md5(8514082388),
-            'mobile' => 8514082388,
-            'full_name' => 'Ayesa Khatun',
-            'created_by' => 1,
-            'is_active' => 1,
-            'is_online' => 1
+            'username' => 'admin',
+            'email'    => 'admin@gmail.com',
+            'mobile'    => '1234567890',
+            'full_name'    => 'Admin',
+            'password'    => password_hash(123,  PASSWORD_DEFAULT),
+            'created_at'    => date('Y-m-d H:i:s'),
+            'created_by'    => 1
         ];
 
         $this->db->table('users')->insert($data);
