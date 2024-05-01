@@ -11,14 +11,14 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<?= base_url(); ?>assets/images/favicon.ico">
+    <link rel="shortcut icon" href="<?= base_url(); ?>back/images/favicon.ico">
 
     <!-- Bootstrap Css -->
-    <link href="<?= base_url(); ?>assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="<?= base_url(); ?>back/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="<?= base_url(); ?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?= base_url(); ?>back/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="<?= base_url(); ?>assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="<?= base_url(); ?>back/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -131,14 +131,14 @@
     <!-- end account-pages -->
 
     <!-- JAVASCRIPT -->
-    <script src="<?= base_url(); ?>assets/libs/jquery/jquery.min.js"></script>
-    <script src="<?= base_url(); ?>assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url(); ?>assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="<?= base_url(); ?>assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="<?= base_url(); ?>assets/libs/node-waves/waves.min.js"></script>
+    <script src="<?= base_url(); ?>back/libs/jquery/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>back/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url(); ?>back/libs/metismenu/metisMenu.min.js"></script>
+    <script src="<?= base_url(); ?>back/libs/simplebar/simplebar.min.js"></script>
+    <script src="<?= base_url(); ?>back/libs/node-waves/waves.min.js"></script>
 
     <!-- App js -->
-    <script src="<?= base_url(); ?>assets/js/app.js"></script>
+    <script src="<?= base_url(); ?>back/js/app.js"></script>
 </body>
 
 <!-- Mirrored from themesbrand.com/skote/layouts/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 May 2023 17:17:57 GMT -->
