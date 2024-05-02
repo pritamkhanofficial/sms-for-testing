@@ -75,6 +75,16 @@
                         <li><a href="< ?= base_url('sectionallocation/view') ?>" key="t-sidebar">View Section Allocation</a></li>
                     </ul>
                 </li> -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-layout"></i>
+                        <span key="t-layouts">Settings</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="<?= base_url('back-panel/premission/header') ?>" key="t-sidebar">Premission Header</a></li>
+                        <!-- <li><a href="< ?= base_url('sectionallocation/view') ?>" key="t-sidebar">View Section Allocation</a></li> -->
+                    </ul>
+                </li>
 
             </ul>
         </div>

@@ -2,7 +2,7 @@
 
 use App\Controllers\SubjectAllocation;
 use CodeIgniter\Router\RouteCollection;
-
+use  App\Modules\Breadcrumbs\Breadcrumbs;
 /**
  * @var RouteCollection $routes
  */
@@ -31,6 +31,17 @@ $routes->group('back-panel', static function ($routes) {
             $routes->match(['get', 'post'],'class/', 'MasterController::class');
             $routes->match(['get', 'post'],'class/(:segment)', 'MasterController::class/$1');
             $routes->match(['get', 'post'],'class/(:segment)/(:segment)', 'MasterController::class/$1/$2');
+
+            $routes->match(['get', 'post'],'section/', 'MasterController::section');
+            $routes->match(['get', 'post'],'section/(:segment)', 'MasterController::section/$1');
+            $routes->match(['get', 'post'],'section/(:segment)/(:segment)', 'MasterController::section/$1/$2');
+
+        });
+        $routes->group('premission', static function ($routes) {
+
+            $routes->match(['get', 'post'],'header/', 'PermissionController::permissionHeader');
+            $routes->match(['get', 'post'],'header/(:segment)', 'PermissionController::permissionHeader/$1');
+            $routes->match(['get', 'post'],'header/(:segment)/(:segment)', 'PermissionController::permissionHeader/$1/$2');
 
             $routes->match(['get', 'post'],'section/', 'MasterController::section');
             $routes->match(['get', 'post'],'section/(:segment)', 'MasterController::section/$1');
