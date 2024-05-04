@@ -82,7 +82,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href="<?= base_url('back-panel/premission/header') ?>" key="t-sidebar">Premission Header</a></li>
-                        <!-- <li><a href="< ?= base_url('sectionallocation/view') ?>" key="t-sidebar">View Section Allocation</a></li> -->
+                        <li><a href="<?= base_url('back-panel/premission/detail') ?>" key="t-sidebar">Premission Detail</a></li>
                     </ul>
                 </li>
 

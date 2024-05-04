@@ -43,10 +43,10 @@ $routes->group('back-panel', static function ($routes) {
             $routes->match(['get', 'post'],'header/(:segment)', 'PermissionController::permissionHeader/$1');
             $routes->match(['get', 'post'],'header/(:segment)/(:segment)', 'PermissionController::permissionHeader/$1/$2');
 
-            $routes->match(['get', 'post'],'section/', 'MasterController::section');
-            $routes->match(['get', 'post'],'section/(:segment)', 'MasterController::section/$1');
-            $routes->match(['get', 'post'],'section/(:segment)/(:segment)', 'MasterController::section/$1/$2');
 
+            $routes->match(['get', 'post'],'detail/', 'PermissionController::permissionDetail');
+            $routes->match(['get', 'post'],'detail/(:segment)', 'PermissionController::permissionDetail/$1');
+            $routes->match(['get', 'post'],'detail/(:segment)/(:segment)', 'PermissionController::permissionDetail/$1/$2');
         });
 
        
