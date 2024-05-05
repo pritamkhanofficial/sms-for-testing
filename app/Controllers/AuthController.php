@@ -41,7 +41,6 @@ class AuthController extends BaseController
                             'user' => $data,
                             'isLoggedIn' => TRUE
                         ];
-                        getPrint(['dsaguyasdy7']);
                         $session->set($session_data);
                         //$userActivityModel = new UserActivity();
                         //$agent = getDeviceInfo();
