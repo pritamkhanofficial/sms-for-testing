@@ -29,30 +29,34 @@ class AuthController extends BaseController
             $password = $this->request->getVar('password');
             $data = $model->auth($username);
             // echo "<pre>"; print_r($data);die;
-            // getPrint($data);
+            // getPrint($password);
             if(!is_null($data)){
                 $pass = $data->password;
+                // getPrint($pass);
                     $authenticatePassword = password_verify($password, $pass);
+
                     if($authenticatePassword){
+                        // getPrint(['dsaguyasdy7']);
                         $session_data = [
                             'user' => $data,
                             'isLoggedIn' => TRUE
-                    ];
-                    $session->set($session_data);
-                    //$userActivityModel = new UserActivity();
-                    //$agent = getDeviceInfo();
-                    /* $userActivityModel->insert([
-                        'user_id'=>$data->user_id,
-                        'institute_id'=>$data->institute_id,
-                        'ip'=>$agent['ip_address'],
-                        'login'=>getCurrentDate(),
-                        'agent'=>json_encode($agent)
-                    ]); */
-                    generateFlash([
-                        'type'=>'success',
-                        'title'=>'Success',
-                        'message'=>'Welcome to dashboard',
-                    ]);
+                        ];
+                        getPrint(['dsaguyasdy7']);
+                        $session->set($session_data);
+                        //$userActivityModel = new UserActivity();
+                        //$agent = getDeviceInfo();
+                        /* $userActivityModel->insert([
+                            'user_id'=>$data->user_id,
+                            'institute_id'=>$data->institute_id,
+                            'ip'=>$agent['ip_address'],
+                            'login'=>getCurrentDate(),
+                            'agent'=>json_encode($agent)
+                        ]); */
+                        generateFlash([
+                            'type'=>'success',
+                            'title'=>'Success',
+                            'message'=>'Welcome to dashboard',
+                        ]);
                     return redirect()->to('back-panel/dashboard');
                 }else{
                     generateFlash([
