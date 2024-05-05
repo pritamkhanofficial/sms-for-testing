@@ -11,19 +11,42 @@ class MasterController extends BaseController
 {
     public function class()
     {
-
+        $session = session();
         $crud = new GroceryCrud();
 
         // $crud->displayAs('section', 'Section');
+        $crud->displayAs('section_id', 'Section');
         $crud->displayAs('is_active', 'Status');
-        $crud->setRelation('section_id', 'section', 'section_name', ['is_active' => 1, 'deleted_at' => NULL]);
+        $crud->setRelationNtoN('section_id', 'section_allocation', 'section', 'class_id', 'section_id','section_name',[
+            'is_active' => 1,
+            'deleted_at' => NULL,
+        ]);
+        $crud->callbackBeforeInsert(function ($stateParameters) use ($session) {
+            $sections = [];
+            if(isset($stateParameters->data['section_id'])){
+                foreach($stateParameters->data['section_id'] as $sec){
+                    $sections[] = $sec;
+                }
+            }
+            $session->set(['sections'=>$sections]);
+            
+            unset($stateParameters->data['section_id']);
+            return $stateParameters;
+        });
 
-        $crud->columns(['class_name','numeric_name', 'is_active']);
+        $crud->callbackColumn('section_id', function ($value, $row) {
+            return $value;
+        });
+
+        $crud->columns(['class_name','numeric_name','section_id', 'is_active']);
         $crud->fields(['class_name', 'numeric_name', 'section_id', 'is_active']);
-
-
-        // $crud->unsetDelete();
-
+        
+        $crud->callbackAfterInsert(function ($stateParameters) use ($session) {
+            $sections = $session->get('sections');
+            $model = new Mastermodel();
+            $model->sectionAllocation($stateParameters->insertId, $sections);
+            return $stateParameters;
+        });
         $crud->unsetPrint();
         $crud->unsetExport();
 
@@ -31,6 +54,7 @@ class MasterController extends BaseController
         $crud->setTable('class');
         $crud->setSubject('Class');
         $output = $crud->render();
+        // getQuery();
         return view('common', (array)$output);
     }
 

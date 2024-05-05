@@ -52,6 +52,10 @@ function getDeviceInfo(){
     ];
 }
 
+function gDT(){
+    return date('Y-m-d H:i:s');
+}
+
 function getPrint($data = NULL){
     echo "<pre>"; print_r($data); exit;
 }
