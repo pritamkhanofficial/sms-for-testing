@@ -2,7 +2,6 @@
 
 <!doctype html>
 <html lang="en">
-<!-- Mirrored from themesbrand.com/skote/layouts/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 May 2023 17:17:57 GMT -->
 
 <head>
     <meta charset="utf-8" />
@@ -141,6 +140,5 @@
     <script src="<?= base_url(); ?>back/js/app.js"></script>
 </body>
 
-<!-- Mirrored from themesbrand.com/skote/layouts/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 May 2023 17:17:57 GMT -->
 
 </html>

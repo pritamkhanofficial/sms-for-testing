@@ -26,7 +26,7 @@ class AuthFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         $session = session();
-        if(!$session->get('is_loggedin')){
+        if(!$session->get('isLoggedIn')){
             return redirect('back-panel');
         }
 
