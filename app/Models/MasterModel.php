@@ -43,12 +43,20 @@ class MasterModel extends Model
         try {
             $this->db->transException(true)->transStart();
                 foreach($sections AS $section){
-                    $this->db->table('section_allocation')->insert([
-                        'class_id'=>$classInsertId,
-                        'section_id'=>$section,
-                        'created_at'=>gDT(),
-                        'created_by'=>getBUD()->id,
-                    ]);
+                    $count = $this->db->table('section_allocation')->getWhere(['class_id' => $classInsertId,'section_id'=>$section])->getNumRows();
+                    if($count == 0){
+                        $this->db->table('section_allocation')->insert([
+                            'class_id'=>$classInsertId,
+                            'section_id'=>$section,
+                            'created_at'=>gDT(),
+                            'created_by'=>getBUD()->id,
+                        ]);
+                    }else{
+                        $this->db->table('section_allocation')->delete([
+                            'class_id'=>$classInsertId,
+                            'section_id'=>$section
+                        ]);
+                    }
                 }
             return $this->db->transComplete();
         } catch (DatabaseException $e) {
