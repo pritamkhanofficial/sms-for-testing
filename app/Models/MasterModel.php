@@ -67,6 +67,7 @@ class MasterModel extends Model
             $crud->columns(['class_name','numeric_name','section_id', 'is_active']);
             $crud->fields(['class_name', 'numeric_name', 'section_id', 'is_active']);
             $crud->unsetPrint();
+            $crud->unsetDelete();
             $crud->unsetExport();
             $crud->setTable('class');
             $crud->setSubject('Class');

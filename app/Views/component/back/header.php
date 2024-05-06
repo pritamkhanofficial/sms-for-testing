@@ -264,7 +264,7 @@
 
                             <div class="dropdown-divider"></div>
 
-                            <a class="dropdown-item text-danger" href="<?= base_url('logout') ?>">
+                            <a class="dropdown-item text-danger" href="<?= base_url('back-panel/logout') ?>">
                                 <i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
                                 <span key="t-logout"
                                     onclick="return confirm ('Are you sure you want to log out?')">Logout</span>

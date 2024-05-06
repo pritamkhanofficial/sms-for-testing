@@ -135,6 +135,12 @@ class AuthController extends BaseController
         $session->remove('is_loggedin');
         return redirect()->to('/');
     }
+    public function logout(){
+        $session = session();
+        $session->remove('user');
+        $session->remove('isLoggedIn');
+        return redirect()->to('/back-panel');
+    }
 
 
 }
