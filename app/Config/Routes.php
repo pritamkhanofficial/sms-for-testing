@@ -28,9 +28,9 @@ $routes->group('back-panel', static function ($routes) {
 
         $routes->group('master', static function ($routes) {
 
-            $routes->match(['get', 'post'],'class/', 'MasterController::class');
-            $routes->match(['get', 'post'],'class/(:segment)', 'MasterController::class/$1');
-            $routes->match(['get', 'post'],'class/(:segment)/(:segment)', 'MasterController::class/$1/$2');
+            $routes->match(['get', 'post'],'class/', 'MasterController::classMaster');
+            $routes->match(['get', 'post'],'class/(:segment)', 'MasterController::classMaster/$1');
+            $routes->match(['get', 'post'],'class/(:segment)/(:segment)', 'MasterController::classMaster/$1/$2');
 
             $routes->match(['get', 'post'],'section/', 'MasterController::section');
             $routes->match(['get', 'post'],'section/(:segment)', 'MasterController::section/$1');

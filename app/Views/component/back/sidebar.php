@@ -11,7 +11,7 @@
 
                 <li>
                     <a href="<?= base_url('dashboard') ?>">
-                        <i class="bx bx-home-circle"></i>
+                        <i class="fas fa-tachometer-alt"></i>
                         <span key="t-dashboards">Dashboards</span>
                     </a>
                     <!-- <ul class="sub-menu" aria-expanded="true">
@@ -32,7 +32,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-layout"></i>
+                        <i class="fas fa-cogs"></i>
                         <span key="t-layouts">Master</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
@@ -41,14 +41,14 @@
                     </ul>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-layout"></i>
                         <span key="t-layouts">Subject</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="<?= base_url('subject/add'); ?>" key="t-sidebar">Add Subject</a></li>
-                        <li><a href="<?= base_url('subject/view'); ?>" key="t-sidebar">View Subject</a></li>
+                        <li><a href="< ?= base_url('subject/add'); ?>" key="t-sidebar">Add Subject</a></li>
+                        <li><a href="< ?= base_url('subject/view'); ?>" key="t-sidebar">View Subject</a></li>
                     </ul>
                 </li>
 
@@ -58,12 +58,12 @@
                         <span key="t-layouts">Subject Allocation</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="<?= base_url('subjectallocation/add') ?>" key="t-sidebar">Add Subject
+                        <li><a href="< ?= base_url('subjectallocation/add') ?>" key="t-sidebar">Add Subject
                                 Allocation</a></li>
-                        <li><a href="<?= base_url('subjectallocation/view') ?>" key="t-sidebar">View Subject
+                        <li><a href="< ?= base_url('subjectallocation/view') ?>" key="t-sidebar">View Subject
                                 Allocation</a></li>
                     </ul>
-                </li>
+                </li> -->
 
                 <!-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -77,7 +77,7 @@
                 </li> -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-layout"></i>
+                        <i class="fas fa-tools"></i>
                         <span key="t-layouts">Settings</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">

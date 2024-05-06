@@ -9,6 +9,22 @@ use App\Libraries\GroceryCrud;
 
 class MasterController extends BaseController
 {
+    public function classMaster()
+    {
+        $model = new MasterModel();
+        $result = $model->classMaster();
+        return view('common', $result);
+    }
+
+    public function section()
+    {
+        $model = new MasterModel();
+        $result = $model->section();
+        return view('common', $result);
+    }
+
+    /*
+    Just For Demo
     public function class()
     {
         $session = session();
@@ -21,7 +37,7 @@ class MasterController extends BaseController
             'is_active' => 1,
             'deleted_at' => NULL,
         ]);
-        /* $crud->callbackBeforeInsert(function ($stateParameters) use ($session) {
+        $crud->callbackBeforeInsert(function ($stateParameters) use ($session) {
             $sections = [];
             if(isset($stateParameters->data['section_id'])){
                 foreach($stateParameters->data['section_id'] as $sec){
@@ -32,8 +48,8 @@ class MasterController extends BaseController
             
             unset($stateParameters->data['section_id']);
             return $stateParameters;
-        }); */
-        /* $crud->callbackBeforeUpdate(function ($stateParameters) use ($session) {
+        });
+        $crud->callbackBeforeUpdate(function ($stateParameters) use ($session) {
             $sections = [];
             if(isset($stateParameters->data['section_id'])){
                 foreach($stateParameters->data['section_id'] as $sec){
@@ -44,29 +60,29 @@ class MasterController extends BaseController
             
             unset($stateParameters->data['section_id']);
             return $stateParameters;
-        }); */
+        });
 
-        /* $crud->callbackColumn('section_id', function ($value, $row) {
+        $crud->callbackColumn('section_id', function ($value, $row) {
             return $value;
-        }); */
+        });
 
         $crud->columns(['class_name','numeric_name','section_id', 'is_active']);
         $crud->fields(['class_name', 'numeric_name', 'section_id', 'is_active']);
         
-        /* $crud->callbackAfterInsert(function ($stateParameters) use ($session) {
+        $crud->callbackAfterInsert(function ($stateParameters) use ($session) {
             $sections = $session->get('sections');
             $model = new Mastermodel();
             $model->sectionAllocation($stateParameters->insertId, $sections);
             $session->remove('sections');
             return $stateParameters;
-        }); */
-        /* $crud->callbackAfterUpdate(function ($stateParameters) use ($session) {
+        });
+        $crud->callbackAfterUpdate(function ($stateParameters) use ($session) {
             $sections = $session->get('sections');
             $model = new Mastermodel();
             $model->sectionAllocation($stateParameters->primaryKeyValue, $sections);
             $session->remove('sections');
             return $stateParameters;
-        }); */
+        });
         $crud->unsetPrint();
         $crud->unsetExport();
 
@@ -76,29 +92,6 @@ class MasterController extends BaseController
         $output = $crud->render();
         // getQuery();
         return view('common', (array)$output);
-    }
-
-    public function section()
-    {
-        $crud = new GroceryCrud();
-        
-        $crud->displayAs('is_active', 'Status');
-        
-
-        $crud->columns(['section_name', 'is_active']);
-        $crud->fields(['section_name', 'is_active']);
-
-
-        // $crud->unsetDelete();
-
-        $crud->unsetPrint();
-        $crud->unsetExport();
-
-
-        $crud->setTable('section');
-        $crud->setSubject('Section');
-        $output = $crud->render();
-        return view('common', (array)$output);
-    }
+    } */
 
 }
