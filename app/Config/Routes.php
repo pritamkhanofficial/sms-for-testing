@@ -41,6 +41,14 @@ $routes->group('back-panel', static function ($routes) {
             $routes->match(['get', 'post'],'subject/(:segment)', 'MasterController::subject/$1');
             $routes->match(['get', 'post'],'subject/(:segment)/(:segment)', 'MasterController::subject/$1/$2');
 
+            $routes->match(['get', 'post'],'department/', 'MasterController::department');
+            $routes->match(['get', 'post'],'department/(:segment)', 'MasterController::department/$1');
+            $routes->match(['get', 'post'],'department/(:segment)/(:segment)', 'MasterController::department/$1/$2');
+
+            $routes->match(['get', 'post'],'designation/', 'MasterController::designation');
+            $routes->match(['get', 'post'],'designation/(:segment)', 'MasterController::designation/$1');
+            $routes->match(['get', 'post'],'designation/(:segment)/(:segment)', 'MasterController::designation/$1/$2');
+
         });
         $routes->group('premission', static function ($routes) {
 
@@ -52,6 +60,10 @@ $routes->group('back-panel', static function ($routes) {
             $routes->match(['get', 'post'],'detail/', 'PermissionController::permissionDetail');
             $routes->match(['get', 'post'],'detail/(:segment)', 'PermissionController::permissionDetail/$1');
             $routes->match(['get', 'post'],'detail/(:segment)/(:segment)', 'PermissionController::permissionDetail/$1/$2');
+
+            $routes->match(['get', 'post'],'role/', 'PermissionController::role');
+            $routes->match(['get', 'post'],'role/(:segment)', 'PermissionController::role/$1');
+            $routes->match(['get', 'post'],'role/(:segment)/(:segment)', 'PermissionController::role/$1/$2');
         });
 
        

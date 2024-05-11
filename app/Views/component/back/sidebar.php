@@ -39,6 +39,8 @@
                         <li><a href="<?= base_url('back-panel/master/class'); ?>" key="t-sidebar">Class</a></li>
                         <li><a href="<?= base_url('back-panel/master/section'); ?>" key="t-sidebar">Section</a></li>
                         <li><a href="<?= base_url('back-panel/master/subject'); ?>" key="t-sidebar">Subject</a></li>
+                        <li><a href="<?= base_url('back-panel/master/department'); ?>" key="t-sidebar">Depertment</a></li>
+                        <li><a href="<?= base_url('back-panel/master/designation'); ?>" key="t-sidebar">Designation</a></li>
                     </ul>
                 </li>
 
@@ -84,6 +86,7 @@
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href="<?= base_url('back-panel/premission/header') ?>" key="t-sidebar">Premission Header</a></li>
                         <li><a href="<?= base_url('back-panel/premission/detail') ?>" key="t-sidebar">Premission Detail</a></li>
+                        <li><a href="<?= base_url('back-panel/premission/role') ?>" key="t-sidebar">Premission Role</a></li>
                     </ul>
                 </li>
 

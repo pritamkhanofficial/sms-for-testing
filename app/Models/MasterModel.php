@@ -101,4 +101,52 @@ class MasterModel extends Model
         $output = $crud->render();
         return (array)$output;
     }
+
+    public function department()
+    {
+        $crud = new GroceryCrud();
+        
+        $crud->displayAs('label', 'Department');
+        $crud->displayAs('is_active', 'Status');
+        
+
+        $crud->columns(['label', 'is_active']);
+        $crud->fields(['label', 'is_active']);
+
+
+        // $crud->unsetDelete();
+
+        $crud->unsetPrint();
+        $crud->unsetExport();
+
+
+        $crud->setTable('department');
+        $crud->setSubject('Department');
+        $output = $crud->render();
+        return (array)$output;
+    }
+
+    public function designation()
+    {
+        $crud = new GroceryCrud();
+        
+        $crud->displayAs('label', 'Designation');
+        $crud->displayAs('is_active', 'Status');
+        
+
+        $crud->columns(['label', 'is_active']);
+        $crud->fields(['label', 'is_active']);
+
+
+        // $crud->unsetDelete();
+
+        $crud->unsetPrint();
+        $crud->unsetExport();
+
+
+        $crud->setTable('designation');
+        $crud->setSubject('Designation');
+        $output = $crud->render();
+        return (array)$output;
+    }
 }

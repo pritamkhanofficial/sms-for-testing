@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Libraries\GroceryCrud;
+use App\Models\PermissionModel;
 
 class PermissionController extends BaseController
 {
@@ -54,5 +55,12 @@ class PermissionController extends BaseController
         $crud->setSubject('Permission Detail');
         $output = $crud->render();
         return view('common', (array)$output);
+    }
+
+    public function role()
+    {
+        $model = new PermissionModel();
+        $result = $model->role();
+        return view('common', $result);
     }
 }

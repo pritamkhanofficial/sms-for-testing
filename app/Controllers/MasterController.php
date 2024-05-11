@@ -30,8 +30,22 @@ class MasterController extends BaseController
         return view('common', $result);
     }
 
+    public function department()
+    {
+        $model = new MasterModel();
+        $result = $model->department();
+        return view('common', $result);
+    }
+
+    public function designation()
+    {
+        $model = new MasterModel();
+        $result = $model->designation();
+        return view('common', $result);
+    }
+
     /*
-    Just For Demo
+    Just For Demo 
     public function class()
     {
         $session = session();
