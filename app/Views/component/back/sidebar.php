@@ -10,7 +10,7 @@
                 <li class="menu-title" key="t-menu">Menu</li>
 
                 <li>
-                    <a href="<?= base_url('dashboard') ?>">
+                    <a href="<?= base_url('back-panel/dashboard') ?>">
                         <i class="fas fa-tachometer-alt"></i>
                         <span key="t-dashboards">Dashboards</span>
                     </a>
