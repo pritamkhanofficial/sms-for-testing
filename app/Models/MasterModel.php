@@ -78,4 +78,27 @@ class MasterModel extends Model
             throw $th;
         }
     }
+
+    public function subject()
+    {
+        $crud = new GroceryCrud();
+        
+        $crud->displayAs('label', 'Subject name');
+        
+
+        $crud->columns(['label', 'subject_type']);
+        $crud->fields(['label', 'subject_type']);
+
+
+        // $crud->unsetDelete();
+
+        $crud->unsetPrint();
+        $crud->unsetExport();
+
+
+        $crud->setTable('subject');
+        $crud->setSubject('Subject');
+        $output = $crud->render();
+        return (array)$output;
+    }
 }

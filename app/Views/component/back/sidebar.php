@@ -38,6 +38,7 @@
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href="<?= base_url('back-panel/master/class'); ?>" key="t-sidebar">Class</a></li>
                         <li><a href="<?= base_url('back-panel/master/section'); ?>" key="t-sidebar">Section</a></li>
+                        <li><a href="<?= base_url('back-panel/master/subject'); ?>" key="t-sidebar">Subject</a></li>
                     </ul>
                 </li>
 

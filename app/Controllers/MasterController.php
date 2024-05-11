@@ -23,6 +23,13 @@ class MasterController extends BaseController
         return view('common', $result);
     }
 
+    public function subject()
+    {
+        $model = new MasterModel();
+        $result = $model->subject();
+        return view('common', $result);
+    }
+
     /*
     Just For Demo
     public function class()

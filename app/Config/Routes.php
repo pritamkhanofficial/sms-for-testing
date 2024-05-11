@@ -37,6 +37,10 @@ $routes->group('back-panel', static function ($routes) {
             $routes->match(['get', 'post'],'section/(:segment)', 'MasterController::section/$1');
             $routes->match(['get', 'post'],'section/(:segment)/(:segment)', 'MasterController::section/$1/$2');
 
+            $routes->match(['get', 'post'],'subject/', 'MasterController::subject');
+            $routes->match(['get', 'post'],'subject/(:segment)', 'MasterController::subject/$1');
+            $routes->match(['get', 'post'],'subject/(:segment)/(:segment)', 'MasterController::subject/$1/$2');
+
         });
         $routes->group('premission', static function ($routes) {
 
