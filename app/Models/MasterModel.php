@@ -66,6 +66,7 @@ class MasterModel extends Model
             ]);
             $crud->columns(['class_name','numeric_name','section_id', 'is_active']);
             $crud->fields(['class_name', 'numeric_name', 'section_id', 'is_active']);
+            $crud->requiredFields(['section_id']);
             $crud->unsetPrint();
             $crud->unsetDelete();
             $crud->unsetExport();
@@ -166,5 +167,50 @@ class MasterModel extends Model
                  $query->where(['class_id'=>$id,'s.deleted_at'=>NULL]);
                  $query->join('section s','s.id=sa.section_id','left');
         return $query->get()->getResult();
+    }
+
+    public function subjectAllocationAdd($postData){
+        try {
+            $this->db->transException(true)->transStart();
+            $arraySubject = array(
+                'class_id' => $postData['class_id'],
+                'section_id' => $postData['section_id'],
+            );
+            // get class teacher details
+            // $get_teacher = $this->subject_model->get('teacher_allocation', $arraySubject, true);
+            $subjects = $postData['subject_id'];
+            foreach ($subjects as $subject) {
+                $arraySubject['subject_id'] = $subject;
+                $count = $this->db->table("subject_allocation")->where($arraySubject)->get()->getNumRows();
+                if ($count == 0) {
+                    $this->db->table('subject_allocation')->insert($arraySubject);
+                }
+            }
+            return $this->db->transComplete();
+        } catch (DatabaseException $th) {
+            throw $th;
+        }
+    }
+    public function subjectAllocationList(){
+        $query = $this->db->table('subject_allocation sa');
+                 $query->select('
+                 c.class_name,
+                 s.section_name,
+                 GROUP_CONCAT(`sub`.`label` SEPARATOR ",") AS subjects
+                 ');
+                 $query->join('class c','c.id=sa.class_id','left');
+                 $query->join('section s','s.id=sa.section_id','left');
+                 $query->join('subject sub','sub.id=sa.subject_id','left');
+                 $query->where([
+                    'c.deleted_at'=>NULL,
+                    's.deleted_at'=>NULL,
+                    'sub.deleted_at'=>NULL,
+                    'c.is_active'=>1,
+                    's.is_active'=>1,
+                    'sub.is_active'=>1
+                 ]);
+                 $query->groupBy('sa.class_id,sa.section_id');
+        return  $query->get()->getResult();
+        // getQuery();
     }
 }

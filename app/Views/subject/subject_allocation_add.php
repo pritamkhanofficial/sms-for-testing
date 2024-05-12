@@ -101,7 +101,7 @@
 
                                         <div class="row mb-3 text-center mt-4">
                                             <div>
-                                                <button type="submit" class="btn btn-success">Submit</button>
+                                                <button type="submit" name="submit" value="submit" class="btn btn-success">Submit</button>
                                             </div>
                                         </div>
                                     </form>
