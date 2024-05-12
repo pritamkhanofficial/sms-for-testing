@@ -82,9 +82,9 @@
                                                 </td>
 
                                                 <td>
-                                                    <!-- <a href="< ?= base_url('subject/edit/' . $data['id']) ?>"
+                                                    <a href="<?= base_url('subject/edit/' . $data['id']) ?>"
                                                         class="btn btn-success">Edit</a>
-                                                    <a href="< ?= base_url('subject/delete/' . $data['id']) ?>"
+                                                    <!-- <a href="< ?= base_url('subject/delete/' . $data['id']) ?>"
                                                         class="btn btn-danger"
                                                         onclick="return confirm('Do You Want to Delete?');">Delete</a> -->
                                                 </td>
