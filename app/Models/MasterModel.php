@@ -149,4 +149,22 @@ class MasterModel extends Model
         $output = $crud->render();
         return (array)$output;
     }
+
+    public function classList(){
+        $query = $this->db->table('class');
+                 $query->where(['is_active'=>1,'deleted_at'=>NULL]);
+        return $query->get()->getResult();
+    }
+    public function subjectList(){
+        $query = $this->db->table('subject');
+                 $query->where(['is_active'=>1,'deleted_at'=>NULL]);
+        return $query->get()->getResult();
+    }
+    public function getSectionByClass($id){
+        $query = $this->db->table('section_allocation sa');
+                 $query->select('s.id, s.section_name');
+                 $query->where(['class_id'=>$id,'s.deleted_at'=>NULL]);
+                 $query->join('section s','s.id=sa.section_id','left');
+        return $query->get()->getResult();
+    }
 }

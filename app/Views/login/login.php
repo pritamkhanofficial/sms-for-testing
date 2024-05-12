@@ -104,7 +104,7 @@
                                             </ul>
                                         </div> -->
 
-                                    <div class="mt-5 text-center">
+                                    <!-- <div class="mt-5 text-center">
 
                                         <div>
                                             <p>Don't have an account ? <a href="auth-register.html"
@@ -116,7 +116,7 @@
                                     <div class="mt-4 text-center">
                                         <a href="auth-recoverpw.html" class="text-muted"><i
                                                 class="mdi mdi-lock me-1"></i> Forgot your password?</a>
-                                    </div>
+                                    </div> -->
                                 </form>
                             </div>
 

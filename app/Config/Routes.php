@@ -48,6 +48,8 @@ $routes->group('back-panel', static function ($routes) {
             $routes->match(['get', 'post'],'designation/', 'MasterController::designation');
             $routes->match(['get', 'post'],'designation/(:segment)', 'MasterController::designation/$1');
             $routes->match(['get', 'post'],'designation/(:segment)/(:segment)', 'MasterController::designation/$1/$2');
+            $routes->match(['get', 'post'],'subject-allocation', 'MasterController::subjectAllocation');
+            
 
         });
         $routes->group('premission', static function ($routes) {
@@ -64,6 +66,10 @@ $routes->group('back-panel', static function ($routes) {
             $routes->match(['get', 'post'],'role/', 'PermissionController::role');
             $routes->match(['get', 'post'],'role/(:segment)', 'PermissionController::role/$1');
             $routes->match(['get', 'post'],'role/(:segment)/(:segment)', 'PermissionController::role/$1/$2');
+        });
+        $routes->group('ajax', static function ($routes) {
+
+            $routes->match(['get', 'post'],'get-section-by-class', 'AjaxController::getSectionByClass');
         });
 
        

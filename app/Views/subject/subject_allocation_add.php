@@ -1,9 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-
-<!-- Mirrored from themesbrand.com/skote/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 May 2023 17:16:12 GMT -->
-
 <head>
 
     <meta charset="utf-8" />
@@ -13,7 +10,7 @@
     <meta content="Themesbrand" name="author" />
 
     <?php
-    echo view('includes/head');
+    echo view('component/back/head');
     ?>
 
 </head>
@@ -21,17 +18,16 @@
 <body data-sidebar="dark" data-layout-mode="light">
 
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-    <?php $session = session(); ?>
     <!-- Begin page -->
     <div id="layout-wrapper">
 
 
         <?php
-        echo view('includes/header');
+        echo view('component/back/header');
         ?>
 
         <?php
-        echo view('includes/sidebar');
+        echo view('component/back/sidebar');
         ?>
 
         <!-- ============================================================== -->
@@ -43,7 +39,7 @@
                 <div class="container-fluid">
 
                     <!-- start page title -->
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                 <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
@@ -57,60 +53,48 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- end page title -->
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <?php if ($session->has('success')) { ?>
-                                    <div class="alert alert-success" role="alert">
-                                        <?php echo session('success'); ?>
-                                    </div>
-                                <?php } else if ($session->has('error')) { ?>
-                                        <div class="alert alert-danger" role="alert">
-                                        <?php echo session('error'); ?>
-                                        </div>
-                                <?php } ?>
                                 <div class="card-body">
 
-                                    <h4 class="card-title mb-3">Add Subject</h4>
-                                    <form action="<?= base_url('subject/store') ?>" method='POST' ,
-                                        enctype="multipart/form-data">
+                                    <h4 class="card-title mb-3">Subject Allocation</h4>
+                                    <form action="" method="POST">
 
                                         <div class="mb-3 row">
-                                            <label for="" class="col-md-2 col-form-label">Subject Name</label>
+                                            <label for="class_id" class="col-md-2 col-form-label">Class</label>
                                             <div class="col-md-10">
-                                                <input class="form-control" type="text" value="" name='sub_name'
-                                                    placeholder="Enter Subject Name">
-                                            </div>
-                                            <div class="text-danger">
-                                                <?php echo $session->getFlashdata('name_error'); ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-md-2 col-form-label">Subject Code</label>
-                                            <div class="col-md-10">
-                                                <input class="form-control" type="text" value="" name='sub_code'
-                                                    placeholder="Enter Subject Code">
-                                            </div>
-                                            <div class="text-danger">
-                                                <?php echo $session->getFlashdata('code_error'); ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-md-2 col-form-label">Subject Type</label>
-                                            <div class="col-md-10">
-                                                <select name="sub_type" id="" class="form-control">
+                                                <select name="class_id" id="class_id" onchange="getSection(this.value)" class="form-select select2">
                                                     <option value="">--Select--</option>
-                                                    <option value="theory">Theory</option>
-                                                    <option value="practical">Practical</option>
-                                                    <option value="mandatory">Mandatory</option>
+                                                    <?php foreach($class as $row){ ?>
+                                                    <option value="<?=$row->id?>"><?=$row->class_name?></option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
-                                            <div class="text-danger">
-                                                <?php echo $session->getFlashdata('type_error'); ?>
+                                        </div>
+
+                                        <div class="mb-3 row">
+                                            <label for="section_id" class="col-md-2 col-form-label">Section</label>
+                                            <div class="col-md-10">
+                                                <select name="section_id" id="section_id" class="form-select">
+                                                    <option value="">-- Select Class First --</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3 row">
+                                            <label for="subject_id" class="col-md-2 col-form-label">Subject</label>
+                                            <div class="col-md-10">
+                                                <select name="subject_id[]"
+                                                    data-placeholder="-- Select Multiple Subjects --" multiple
+                                                    id="subject_id" class="form-select select2">
+                                                    <option value="">--Select--</option>
+                                                    <?php foreach($subject as $row){ ?>
+                                                    <option value="<?=$row->id?>"><?=$row->label?></option>
+                                                    <?php } ?>
+                                                </select>
                                             </div>
                                         </div>
 
@@ -131,7 +115,7 @@
             <!-- End Page-content -->
 
             <?php
-            echo view('includes/footer');
+            echo view('component/back/footer');
             ?>
         </div>
         <!-- end main content-->
@@ -143,11 +127,26 @@
     <div class="rightbar-overlay"></div>
 
     <?php
-    echo view('includes/script');
+    echo view('component/back/script');
     ?>
+
+
+<script>
+    function getSection(id){
+        $.ajax({
+            type: 'POST',
+            url: "<?=base_url('back-panel/ajax/get-section-by-class')?>",
+            data: {"id":id},
+            dataType: "json",
+            success: function(resultData) { 
+                // alert(resultData) 
+
+                $("#section_id").html(resultData);
+            }
+        });
+
+    }
+</script>
 </body>
-
-
-<!-- Mirrored from themesbrand.com/skote/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 May 2023 17:16:54 GMT -->
 
 </html>
