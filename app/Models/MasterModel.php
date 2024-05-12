@@ -196,7 +196,7 @@ class MasterModel extends Model
                  $query->select('
                  c.class_name,
                  s.section_name,
-                 GROUP_CONCAT(`sub`.`label` SEPARATOR ",") AS subjects
+                 GROUP_CONCAT(CONCAT("- ",`sub`.`label`) SEPARATOR "<br>") AS subjects
                  ');
                  $query->join('class c','c.id=sa.class_id','left');
                  $query->join('section s','s.id=sa.section_id','left');
