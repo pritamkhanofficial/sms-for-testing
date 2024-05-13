@@ -48,7 +48,8 @@ $routes->group('back-panel', static function ($routes) {
             $routes->match(['get', 'post'],'designation/', 'MasterController::designation');
             $routes->match(['get', 'post'],'designation/(:segment)', 'MasterController::designation/$1');
             $routes->match(['get', 'post'],'designation/(:segment)/(:segment)', 'MasterController::designation/$1/$2');
-            $routes->match(['get', 'post'],'subject-allocation', 'MasterController::subjectAllocation');
+            $routes->match(['get', 'post'],'subject-allocation-list', 'MasterController::subjectAllocationList');
+            $routes->match(['get', 'post'],'subject-allocation-add', 'MasterController::subjectAllocationAdd');
             
 
         });

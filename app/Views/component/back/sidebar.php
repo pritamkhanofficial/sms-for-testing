@@ -39,7 +39,7 @@
                         <li><a href="<?= base_url('back-panel/master/class'); ?>" key="t-sidebar">Class</a></li>
                         <li><a href="<?= base_url('back-panel/master/section'); ?>" key="t-sidebar">Section</a></li>
                         <li><a href="<?= base_url('back-panel/master/subject'); ?>" key="t-sidebar">Subject</a></li>
-                        <li><a href="<?= base_url('back-panel/master/subject-allocation'); ?>" key="t-sidebar">Subject</a></li>
+                        <li><a href="<?= base_url('back-panel/master/subject-allocation-list'); ?>" key="t-sidebar">Subject Allocation</a></li>
                         <li><a href="<?= base_url('back-panel/master/department'); ?>" key="t-sidebar">Depertment</a></li>
                         <li><a href="<?= base_url('back-panel/master/designation'); ?>" key="t-sidebar">Designation</a></li>
                     </ul>

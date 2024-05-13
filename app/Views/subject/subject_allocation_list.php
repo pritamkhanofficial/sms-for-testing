@@ -10,7 +10,7 @@
     <meta content="Themesbrand" name="author" />
 
     <?php
-    echo view('component/head');
+    echo view('component/back/head');
     ?>
 
 </head>
@@ -23,11 +23,11 @@
 
 
         <?php
-        echo view('component/header');
+        echo view('component/back/header');
         ?>
 
         <?php
-        echo view('component/sidebar');
+        echo view('component/back/sidebar');
         ?>
 
         <!-- ============================================================== -->
@@ -38,36 +38,16 @@
             <div class="page-content">
                 <div class="container-fluid">
 
-                    <!-- start page title -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
-
-                                <div class="page-title-right">
-                                    <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                                        <li class="breadcrumb-item active">Dashboard</li>
-                                    </ol>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end page title -->
+                   
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <h4 class="card-title">View Subject</h4>
+                                        <div class="col-md-12 mb-2">
+                                            <a class="btn btn-success btn-sm" href="<?= base_url('back-panel/master/subject-allocation-add') ?>"><i
+                                                    class="fas fa-plus"></i> Add</a>
                                         </div>
-
-                                        <!-- <div class="col-md-6 d-flex justify-content-end mb-2">
-                                            <a class="btn btn-success btn-md" href="< ?= base_url('subject/add') ?>"><i
-                                                    class="fas fa-plus"></i>Add</a>
-                                        </div> -->
                                     </div>
                                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                         <thead>
@@ -83,43 +63,33 @@
 
                                         <tbody>
                                             <?php
-                                            $i = 1;
-                                            foreach ($subjects as $data) {
+                                            foreach ($subjectList as $key=>$row) {
                                                 ?>
                                             <tr>
                                                 <td>
-                                                    <?= $i ?>
+                                                    <?= ++$key ?>
                                                 </td>
                                                 <td>
-                                                    <?= $data['subject_name'] ?>
-                                                </td>
-
-                                                <td>
-                                                    <?= $data['subject_code'] ?>
+                                                    <?= $row->class_name ?>
                                                 </td>
 
                                                 <td>
-                                                    <?php if ($data['subject_type'] == 'theory') {
-                                                            echo 'Theory';
-                                                        } else if ($data['subject_type'] == 'practical') {
-                                                            echo 'Practical';
-                                                        } else if ($data['subject_type'] == 'mandatory') {
-                                                            echo 'Mandatory';
-                                                        } else {
-                                                            echo $data['subject_type'];
-                                                        } ?>
+                                                    <?= $row->section_name ?>
                                                 </td>
 
                                                 <td>
-                                                    <a href="<?= base_url('subject/edit/' . $data['id']) ?>"
-                                                        class="btn btn-success">Edit</a>
-                                                    <a href="<?= base_url('subject/delete/' . $data['id']) ?>"
+                                                <?= $row->subjects ?>
+                                                </td>
+
+                                                <td>
+                                                    <!-- <a href="< ?= base_url('subject/edit/' . $data['id']) ?>"
+                                                        class="btn btn-success">Edit</a> -->
+                                                    <!-- <a href="< ?= base_url('subject/delete/' . $data['id']) ?>"
                                                         class="btn btn-danger"
-                                                        onclick="return confirm('Do You Want to Delete?');">Delete</a>
+                                                        onclick="return confirm('Do You Want to Delete?');">Delete</a> -->
                                                 </td>
                                             </tr>
                                             <?php
-                                                $i++;
                                             }
 
                                             ?>
@@ -136,7 +106,7 @@
             <!-- End Page-content -->
 
             <?php
-            echo view('component/footer');
+            echo view('component/back/footer');
             ?>
         </div>
         <!-- end main content-->
@@ -148,7 +118,7 @@
     <div class="rightbar-overlay"></div>
 
     <?php
-    echo view('component/script');
+    echo view('component/back/script');
     ?>
 </body>
 

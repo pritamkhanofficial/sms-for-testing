@@ -43,12 +43,27 @@ class MasterController extends BaseController
         $result = $model->designation();
         return view('common', $result);
     }
-    public function subjectAllocation()
+    public function subjectAllocationList()
     {
         $model = new MasterModel();
-        // $result = $model->subjectAllocation();
+        $subjectList = $model->subjectAllocationList();
+        return view('subject/subject_allocation_list', [
+            'subjectList'=>$subjectList
+        ]);
+    }
+    public function subjectAllocationAdd()
+    {
+        $model = new MasterModel();
         $class = $model->classList();
         $subject = $model->subjectList();
+        if($this->request->getVar('submit') == 'submit'){
+            $result = $model->subjectAllocationAdd($this->request->getVar());
+            if($result){
+                // return redirect('back-panel/master/class');
+            }else{
+                return redirect('back-panel/master/subject-allocation');
+            }
+        }
         return view('subject/subject_allocation_add', [
             'class'=>$class,
             'subject'=>$subject,
