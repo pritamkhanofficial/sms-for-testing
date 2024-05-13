@@ -9,3 +9,4 @@
 <link href="<?= base_url(); ?>back/css/icons.min.css" rel="stylesheet" type="text/css" />
 <!-- App Css-->
 <link href="<?= base_url(); ?>back/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css">

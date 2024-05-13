@@ -81,6 +81,15 @@
                 </li> -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fas fa-users"></i>
+                        <span key="t-layouts">Employee</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="<?= base_url('back-panel/employee/add') ?>" key="t-sidebar">Add</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="fas fa-tools"></i>
                         <span key="t-layouts">Settings</span>
                     </a>

@@ -67,6 +67,9 @@ $routes->group('back-panel', static function ($routes) {
             $routes->match(['get', 'post'],'role/(:segment)', 'PermissionController::role/$1');
             $routes->match(['get', 'post'],'role/(:segment)/(:segment)', 'PermissionController::role/$1/$2');
         });
+        $routes->group('employee', static function ($routes){
+            $routes->match(['get', 'post'],'add', 'EmployeeController::employeeAdd');
+        });
         $routes->group('ajax', static function ($routes) {
 
             $routes->match(['get', 'post'],'get-section-by-class', 'AjaxController::getSectionByClass');
