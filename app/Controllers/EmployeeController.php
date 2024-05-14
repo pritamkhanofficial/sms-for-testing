@@ -17,4 +17,9 @@ class EmployeeController extends BaseController
         // getPrint($result);
         return view('employee/add.php', $result);
     }
+
+    public function employee()
+    {
+        getPrint('ok');
+    }
 }
