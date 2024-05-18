@@ -237,9 +237,10 @@
     echo view('component/back/script');
     ?>
     <script>
-        $('.dropify').dropify();
+        // $('.dropify').dropify();
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
     <script>
         $('#employeeForm').validate({
             rules: {
@@ -285,6 +286,11 @@
                 permanent_address: {
                     required:true
                 },
+                profile_picture: {
+                    accept: "image/*",
+                    minImageWidth: 1
+                },
+
                 email: {
                     required:true
                 },
@@ -348,6 +354,15 @@
                    
             },
         });
+
+        $.validator.addMethod('minImageWidth', function(value, element, minWidth) {
+                return ($(element).data('imageWidth') || 0) > minWidth;
+                }, function(minWidth, element) {
+                var imageWidth = $(element).data('imageWidth');
+                return (imageWidth)
+                    ? ("Your image's width must be greater than " + minWidth + "px")
+                    : "Selected file is not an image.";
+                });
     </script>
 </body>
 
