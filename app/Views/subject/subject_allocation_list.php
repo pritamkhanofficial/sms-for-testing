@@ -82,11 +82,8 @@
                                                 </td>
 
                                                 <td>
-                                                    <!-- <a href="< ?= base_url('subject/edit/' . $data['id']) ?>"
-                                                        class="btn btn-success">Edit</a> -->
-                                                    <!-- <a href="< ?= base_url('subject/delete/' . $data['id']) ?>"
-                                                        class="btn btn-danger"
-                                                        onclick="return confirm('Do You Want to Delete?');">Delete</a> -->
+                                                    <button class="btn btn-success btn-sm" data-class_id = "<?=$row->class_id?>" data-section_id = "<?=$row->section_id?>"><i class="fas fa-edit"></i></button>
+                                                     <button class="btn btn-primary btn-sm" data-class_id = "<?=$row->class_id?>" data-section_id = "<?=$row->section_id?>"><i class="fas fa-user-tie"></i></a>
                                                 </td>
                                             </tr>
                                             <?php
@@ -121,8 +118,5 @@
     echo view('component/back/script');
     ?>
 </body>
-
-
-<!-- Mirrored from themesbrand.com/skote/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 May 2023 17:16:54 GMT -->
 
 </html>

@@ -43,7 +43,7 @@
                                 <div class="card-body">
 
                                     <h4 class="card-title mb-3"> Add Employee</h4>
-                                    <form class="employeeForm" id="employeeForm" method="post" >
+                                    <form class="employeeForm" id="employeeForm" method="post">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="mb-3">
@@ -51,24 +51,29 @@
                                                     <select id="role_id" name="role_id" class="form-select">
                                                         <option value="" selected>Choose...</option>
                                                         <?php if (!empty($Role)) foreach ($Role as $Role) : ?>
-                                                            <option value="<?= $Role->id; ?>"><?= $Role->display_name; ?></option>
+                                                        <option value="<?= $Role->id; ?>"><?= $Role->display_name; ?>
+                                                        </option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="mb-3">
-                                                    <label for="formrow-joiningDate-input" class="from-label">Joining Date</label>
-                                                    <input type="date" class="form-control" name="joining_date" id="joining_date" placeholder="Enter Your Joining Date">
+                                                    <label for="formrow-joiningDate-input" class="from-label">Joining
+                                                        Date</label>
+                                                    <input type="date" class="form-control" name="joining_date"
+                                                        id="joining_date" placeholder="Enter Your Joining Date">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="mb-3">
                                                     <label for="designation_id" class="form-label">Designation</label>
-                                                    <select id="designation_id" name="designation_id" class="form-select">
+                                                    <select id="designation_id" name="designation_id"
+                                                        class="form-select">
                                                         <option value="" selected>Choose...</option>
                                                         <?php if (!empty($Designation)) foreach ($Designation as $desig) : ?>
-                                                            <option value="<?= $desig->label; ?>"><?= $desig->label; ?></option>
+                                                        <option value="<?= $desig->label; ?>"><?= $desig->label; ?>
+                                                        </option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
@@ -81,7 +86,8 @@
                                                     <select id="department_id" name="department_id" class="form-select">
                                                         <option value="" selected>Choose...</option>
                                                         <?php if (!empty($Department)) foreach ($Department as $depart) : ?>
-                                                            <option value="<?= $depart->id; ?>"><?= $depart->label; ?></option>
+                                                        <option value="<?= $depart->id; ?>"><?= $depart->label; ?>
+                                                        </option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
@@ -89,7 +95,8 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label for="qualification" class="from-label">Qualification</label>
-                                                    <input type="text" class="form-control" id="qualification" name="qualification" placeholder="Enter Your Qualification">
+                                                    <input type="text" class="form-control" id="qualification"
+                                                        name="qualification" placeholder="Enter Your Qualification">
                                                 </div>
                                             </div>
                                         </div>
@@ -99,7 +106,8 @@
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label for="name" class="form-label">Name</label>
-                                                    <input type="text" class="form-control" id="name" name="name" placeholder="Name Your Name">
+                                                    <input type="text" class="form-control" id="name" name="name"
+                                                        placeholder="Name Your Name">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -119,7 +127,8 @@
                                             <div class="col-lg-4">
                                                 <div class="mb-3">
                                                     <label for="religion" class="form-label">Religion</label>
-                                                    <input type="text" class="form-control" id="religion" name="religion" placeholder="Enter Your Religion">
+                                                    <input type="text" class="form-control" id="religion"
+                                                        name="religion" placeholder="Enter Your Religion">
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
@@ -142,7 +151,8 @@
                                             <div class="col-lg-4">
                                                 <div class="mb-3">
                                                     <label for="date_of_birth" class="form-label">Date Of Birth </label>
-                                                    <input type="date" class="form-control" id="date_of_birth" name="date_of_birth">
+                                                    <input type="date" class="form-control" id="date_of_birth"
+                                                        name="date_of_birth">
                                                 </div>
                                             </div>
                                         </div>
@@ -150,7 +160,8 @@
                                             <div class="col-lg-12">
                                                 <div class="mb-3">
                                                     <label for="mobile" class="form-label">Mobile No</label>
-                                                    <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Enter Your Mobile Number">
+                                                    <input type="number" class="form-control" id="mobile" name="mobile"
+                                                        placeholder="Enter Your Mobile Number">
                                                 </div>
                                             </div>
                                         </div>
@@ -158,21 +169,27 @@
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="present_address">Present Address </label>
-                                                    <textarea id="present_address" name="present_address" class="form-control" rows="3" placeholder="Enter Your Present Address "></textarea>
+                                                    <textarea id="present_address" name="present_address"
+                                                        class="form-control" rows="3"
+                                                        placeholder="Enter Your Present Address "></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="permanent_address">Permanent Address</label>
-                                                    <textarea id="permanent_address" name="permanent_address" class="form-control" rows="3" placeholder="Enter Your Permanent Address"></textarea>
+                                                    <textarea id="permanent_address" name="permanent_address"
+                                                        class="form-control" rows="3"
+                                                        placeholder="Enter Your Permanent Address"></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="mb-3">
-                                                    <label for="profile_picture" class="form-label">Profile Picture</label>
-                                                    <input type="file" class="form-control dropify" id="profile_picture" name="profile_picture" placeholder="Enter Your Email">
+                                                    <label for="profile_picture" class="form-label">Profile
+                                                        Picture</label>
+                                                    <input type="file" class="form-control dropify" id="profile_picture"
+                                                        name="profile_picture" placeholder="Enter Your Email">
                                                 </div>
                                             </div>
                                         </div>
@@ -180,19 +197,22 @@
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="email" class="form-label">Email</label>
-                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+                                                    <input type="email" class="form-control" id="email" name="email"
+                                                        placeholder="Enter Your Email">
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="mb-3">
                                                     <label for="password" class="form-label">Password</label>
-                                                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password">
+                                                    <input type="password" class="form-control" id="password"
+                                                        name="password" placeholder="Enter Your Password">
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="mb-3">
                                                     <label for="cnf_password" class="form-label">Retype Password</label>
-                                                    <input type="password" class="form-control" id="cnf_password" name="cnf_password" placeholder="Re-enter Your Password">
+                                                    <input type="password" class="form-control" id="cnf_password"
+                                                        name="cnf_password" placeholder="Re-enter Your Password">
                                                 </div>
                                             </div>
                                         </div>
@@ -207,9 +227,11 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <button type="submit" name="submit" value="submit" class="btn btn-primary w-md">Submit<div class="spinner-border d-none" role="status">
-                                            <span class="visually-hidden">Loading...</span>
-                                        </div></button>
+                                            <button type="submit" name="submit" value="submit"
+                                                class="btn btn-primary w-md">Submit<div class="spinner-border d-none"
+                                                    role="status">
+                                                    <span class="visually-hidden">Loading...</span>
+                                                </div></button>
                                         </div>
                                     </form>
                                 </div>
@@ -237,132 +259,163 @@
     echo view('component/back/script');
     ?>
     <script>
-        // $('.dropify').dropify();
+    $('.dropify').dropify();
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
     <script>
-        $('#employeeForm').validate({
-            rules: {
-                role_id: {
-                    required:true
-                },
-                joining_date: {
-                    required: true
-                },
-                designation_id: {
-                    required:true
-                },
-                department_id: {
-                    required:true   
-                } ,
-                qualification: {
-                    required:true
-                },
-                name: {
-                    required:true
-                },
-                gender: {
-                    required:true
-                },
-                religion: {
-                    required:true
-                },
-                blood_group: {
-                    required:true
-                },
-                date_of_birth: {
-                    required:true
-                },
-                mobile: {
-                    required:true,
-                    number: true,
-                    minlength: 10,
-                    maxlength: 10
-                },
-                present_address: {
-                    required:true
-                },
-                permanent_address: {
-                    required:true
-                },
-                profile_picture: {
-                    accept: "image/*",
-                    minImageWidth: 1
-                },
-
-                email: {
-                    required:true
-                },
-                password: {
-                    required:true
-                },
-                cnf_password: {
-                    required:true
-                },
+    $('#employeeForm').validate({
+        rules: {
+            role_id: {
+                required: true
             },
-            messages: {
-                role_id: "please select role",
-                joining_date: {
-                    required:"please select joining date"
-                },
-                designation_id: {
-                    required: "please select role",
-                },
-                department_id: {
-                    required:"please select department"   
-                },
-                qualification: {
-                    required:"please enter qualification"
-                },
-                name: {
-                    required:"please enter name" 
-                },
-                gender: {
-                    required:"please select gender"
-                },
-                religion: {
-                    required:"please enter religion"
-                },  
-                blood_group: {
-                    required:"please select blood_group"
-                },
-                date_of_birth: {
-                    required:"please select blood_group"
-                },
-                mobile: {
-                    required:"please enter phone number",
-                    number: "Phone number must be numeric",
-                    minlength: "Phone number must be 10 digit",
-                    maxlength: "Phone number must be 10 digit"
-                },
-                present_address: {
-                    required:"please enter present address"
-                },
-                permanent_address: {
-                    required:"please enter permanent address"
-                },
-                email: {
-                    required:"please enter email"
-                },
-                password: {
-                    required:"please enter password"
-                },
-                cnf_password: {
-                    required:"please re-enter password"
-                },
-                   
+            joining_date: {
+                required: true
             },
-        });
+            designation_id: {
+                required: true
+            },
+            department_id: {
+                required: true
+            },
+            qualification: {
+                required: true
+            },
+            name: {
+                required: true
+            },
+            gender: {
+                required: true
+            },
+            religion: {
+                required: true
+            },
+            blood_group: {
+                required: true
+            },
+            date_of_birth: {
+                required: true
+            },
+            mobile: {
+                required: true,
+                number: true,
+                minlength: 10,
+                maxlength: 10
+            },
+            present_address: {
+                required: true
+            },
+            permanent_address: {
+                required: true
+            },
+            /* profile_picture: {
+                accept: ".jpg",
+                // imageDimension: [1600, 900],
+                required: false
+            }, */
 
-        $.validator.addMethod('minImageWidth', function(value, element, minWidth) {
-                return ($(element).data('imageWidth') || 0) > minWidth;
-                }, function(minWidth, element) {
-                var imageWidth = $(element).data('imageWidth');
-                return (imageWidth)
-                    ? ("Your image's width must be greater than " + minWidth + "px")
-                    : "Selected file is not an image.";
-                });
+            email: {
+                required: true
+            },
+            password: {
+                required: true
+            },
+            cnf_password: {
+                required: true
+            },
+        },
+        messages: {
+            role_id: "please select role",
+            joining_date: {
+                required: "please select joining date"
+            },
+            designation_id: {
+                required: "please select role",
+            },
+            department_id: {
+                required: "please select department"
+            },
+            qualification: {
+                required: "please enter qualification"
+            },
+            name: {
+                required: "please enter name"
+            },
+            gender: {
+                required: "please select gender"
+            },
+            religion: {
+                required: "please enter religion"
+            },
+            blood_group: {
+                required: "please select blood_group"
+            },
+            date_of_birth: {
+                required: "please select blood_group"
+            },
+            mobile: {
+                required: "please enter phone number",
+                number: "Phone number must be numeric",
+                minlength: "Phone number must be 10 digit",
+                maxlength: "Phone number must be 10 digit"
+            },
+            present_address: {
+                required: "please enter present address"
+            },
+            permanent_address: {
+                required: "please enter permanent address"
+            },
+            email: {
+                required: "please enter email"
+            },
+            password: {
+                required: "please enter password"
+            },
+            cnf_password: {
+                required: "please re-enter password"
+            },
+
+        },
+    });
+
+    /* $.validator.addMethod("imageDimension", function(value, element, param) {
+        console.log(element.files[0]);
+        if (element.files.length == 0) {
+            return true; // No file selected, do not validate the dimension
+        }
+
+        var file = element.files[0];
+        var img = new Image();
+        var deferred = $.Deferred();
+
+        img.onload = function() {
+            var width = this.width;
+            var height = this.height;
+            if (width <= param[0] && height <= param[1]) {
+
+                console.log("===============> in if condition ",[]);
+                deferred.resolve();
+                return true;
+                
+            } else {
+                console.log("===============> in else condition ",[]);
+                deferred.reject();
+                return false;
+            }
+            console.log("====================> state",deferred.state());
+            return deferred.state() == "resolved";
+        };
+
+        img.onerror = function() {
+            console.log("=====================> reject",deferred.state());
+            deferred.reject();
+        };
+
+        img.src = URL.createObjectURL(file);
+        console.log("===============> all",deferred.state());
+        // return true;
+        return deferred.state() == "resolved";
+    }, "Please upload an image with valid dimensions."); */
     </script>
 </body>
 
