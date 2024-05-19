@@ -172,3 +172,31 @@
             a(".table-check .form-check-input:checked").length == a(".table-check .form-check-input").length ? a("#checkAll").prop("checked", !0) : a("#checkAll").prop("checked", !1);
         });
 })(jQuery);
+
+function buttonLoader(action) {
+    // alert();
+    $('.loadBtn').attr("disabled", false);
+    var self = $('.loadBtn');
+    if (action == 'start') {
+        if ($(self).attr("disabled") == "disabled") {
+            return false;
+        }
+        $('.loadBtn').attr("disabled", true);
+        $(self).attr('data-btn-text', $(self).text());
+        var text = 'Loading';
+        console.log($(self).attr('data-load-text'));
+        if ($(self).attr('data-load-text') != undefined && $(self).attr('data-load-text') != "") {
+            var text = $(self).attr('data-load-text');
+        }
+        $(self).html(text +
+            '<span class="spinner"><i class="fa fa-spinner fa-spin" title="button-loader"></i></span> ');
+        $(self).addClass('active');
+    }
+    if (action == 'stop') {
+        $(self).html($(self).attr('data-btn-text'));
+        $(self).removeClass('active');
+        $('.loadBtn').attr("disabled", false);
+    }
+}
+
+
