@@ -195,6 +195,8 @@ class MasterModel extends Model
         $query = $this->db->table('subject_allocation sa');
                  $query->select('
                  c.class_name,
+                 sa.class_id,
+                 sa.section_id,
                  s.section_name,
                  GROUP_CONCAT(CONCAT("- ",`sub`.`label`) SEPARATOR "<br>") AS subjects
                  ');
