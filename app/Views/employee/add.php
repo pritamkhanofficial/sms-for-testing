@@ -246,7 +246,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
     <script>
-        $('#employeeForm').validate({
+        /* $('#employeeForm').validate({
             rules: {
                 role_id: {
                     required: true
@@ -352,20 +352,20 @@
                 },
 
             },
-        });
+        }); */
 
         $("#employeeForm").ajaxForm({
-            beforeSubmit: function() {
+            /* beforeSubmit: function() {
                 var valid = $('#employeeForm').valid();
                 if (valid) {
-                    $(".spinner-border").removeClass("d-none")
+                    // $(".spinner-border").removeClass("d-none")
                     return valid;
                 }
-            },
+            }, */
             success: function() {
-                swAlert(response)
-                $('#employeeForm')[0].reset();
-                $(".spinner-border").addClass("d-none")
+                // swAlert(response)
+                // $('#employeeForm')[0].reset();
+                // $(".spinner-border").addClass("d-none")
             }
         });
     </script>
