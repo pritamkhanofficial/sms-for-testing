@@ -195,8 +195,8 @@
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="mb-3">
-                                                    <label for="cnf_password" class="form-label">Retype Password</label>
-                                                    <input type="password" class="form-control" id="cnf_password" name="cnf_password" placeholder="Re-enter Your Password">
+                                                    <label for="confirm_password" class="form-label">Retype Password</label>
+                                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Re-enter Your Password">
                                                 </div>
                                             </div>
                                         </div>
@@ -296,7 +296,7 @@
                 password: {
                     required: true
                 },
-                cnf_password: {
+                confirm_password: {
                     required: true
                 },
             },
@@ -347,7 +347,7 @@
                 password: {
                     required: "please enter password"
                 },
-                cnf_password: {
+                confirm_password: {
                     required: "please re-enter password"
                 },
 
@@ -356,7 +356,6 @@
 
         $("#employeeForm").ajaxForm({
             beforeSubmit: function() {
-                alert('ok');
                 var valid = $('#employeeForm').valid();
                 if (valid) {
                     $(".spinner-border").removeClass("d-none")
@@ -364,7 +363,7 @@
                 }
             },
             success: function() {
-
+                alert('Successfully registerd....')
                 // swAlert(response)
                 $('#employeeForm')[0].reset();
                 $(".spinner-border").addClass("d-none")

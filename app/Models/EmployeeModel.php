@@ -30,15 +30,15 @@ class EmployeeModel extends Model
         try {
             $this->db->transException(true)->transStart();
             $profile = NULL;
-            if(isset($postFile['profile_picture'])){
-                $profile = UploadFile($postFile['profile_picture']);
+            if(isset($postFile)){
+                $profile = UploadFile($postFile);
             }
 
                 $userData = [
                     'username' => rand(1000,9000),
-                    'email' => $this->request->getVar('department_id'),
+                    'email' => $postData['email'],
                     'password' => getHash($postData['confirm_password']),
-                    'mobile' => $this->request->getVar('designation_id'),
+                    'mobile' => $postData['mobile'],
                     'full_name' =>  $postData['name'],
                     'created_at' => gDT(),
                     'created_by' => getBUD()->id
@@ -52,19 +52,20 @@ class EmployeeModel extends Model
                 $staffData = [
                     'user_id' => $user_id,
                     'name' => $postData['name'],
-                    'department' => $this->request->getVar('department_id'),
-                    'qualification' => $this->request->getVar('qualification'),
-                    'designation' => $this->request->getVar('designation_id'),
-                    'joining_date' => $this->request->getVar('joining_date'),
-                    'birthday' => $this->request->getVar('date_of_birth'),
-                    'sex' => $this->request->getVar('gender'),
-                    'religion' => $this->request->getVar('religion'),
-                    'blood_group' => $this->request->getVar('blood_group'),
-                    'present_address' => $this->request->getVar('present_address'),
-                    'permanent_address' => $this->request->getVar('permanent_address'),
-                    'mobileno' => $this->request->getVar('mobile'),
-                    'email' => $this->request->getVar('email'),
-                    'photo' => $this->request->getVar('profile_picture')
+                    'department' => $postData['department_id'],
+                    'qualification' => $postData['qualification'],
+                    'designation' => $postData['designation_id'],
+                    'joining_date' =>$postData['joining_date'],
+                    'birthday' => $postData['date_of_birth'],
+                    'gender' => $postData['gender'],
+                    'religion' => $postData['religion'],
+                    'blood_group' => $postData['blood_group'],
+                    'present_address' => $postData['present_address'],
+                    'permanent_address' => $postData['permanent_address'],
+                    'mobileno' => $postData['mobile'],
+                    'email' => $postData['email'],
+                    'created_at' => gDT(),
+                    'created_by' => getBUD()->id
                 ];
 
                 if(!is_null($profile)){
@@ -72,9 +73,9 @@ class EmployeeModel extends Model
                 }
                 $this->db->table('staffs')->insert($staffData);
 
-            $this->db->transComplete();
+            return $this->db->transComplete();
         } catch (DatabaseException $e) {
-            // Automatically rolled back already.
+            throw $e;
         }
     }
 }

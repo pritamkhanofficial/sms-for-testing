@@ -20,7 +20,7 @@ class EmployeeController extends BaseController
         $result['Role'] = $this->model->get_role();
         
         if($this->request->getVar('submit')){
-            $result = $this->model->employeeAdd($this->request->getVar(),$this->request->getFile());
+            $result = $this->model->employeeAdd($this->request->getVar(),$this->request->getFile('profile_picture'));
             if($result){
                 return $this->response->setJSON([
                     'type' => 'success',
