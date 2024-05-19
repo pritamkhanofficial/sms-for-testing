@@ -77,4 +77,33 @@ function getBUD(){
     return $payload;
 }
 
+function UploadFile(\CodeIgniter\HTTP\Files\UploadedFile $imageFile, $folder=NULL, $editFileName = NULL)
+{
+    try {
+        if ($imageFile->hasMoved()) {
+            return;
+        }
+        
+        $upload_dir = UPLOAD_DIR;
+        $upload_dir = empty($folder) ? $upload_dir : $upload_dir.$folder;
+        if (!file_exists($upload_dir)) {
+            mkdir($upload_dir, 0777, true);
+        }
+        $imageName = uniqid() . '.' . $imageFile->getExtension();
+        if(!is_null($editFileName) && !empty($editFileName)){
+            $path = $upload_dir .'/'. $editFileName;
+            if(file_exists($path)){
+                unlink($path);
+            }
+        }
+        return $imageFile->move($upload_dir, $imageName) == true ? $imageName : null;
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+}
+
+function getHash($data){
+    return password_hash($data,  PASSWORD_DEFAULT);
+}
+
 ?>
