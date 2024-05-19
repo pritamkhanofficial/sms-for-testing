@@ -43,7 +43,7 @@
                                 <div class="card-body">
 
                                     <h4 class="card-title mb-3"> Add Employee</h4>
-                                    <form class="employeeForm" id="employeeForm" method="post" action="<?= base_url('back-panel/employee/employee-add') ?>">
+                                    <form class="employeeForm" id="employeeForm" method="post" enctype="multipart/form-data action="<?= base_url('back-panel/employee/add') ?>">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="mb-3">
@@ -355,19 +355,22 @@
         }); */
 
         $("#employeeForm").ajaxForm({
-            /* beforeSubmit: function() {
+            beforeSubmit: function() {
+                alert('ok');
                 var valid = $('#employeeForm').valid();
                 if (valid) {
-                    // $(".spinner-border").removeClass("d-none")
+                    $(".spinner-border").removeClass("d-none")
                     return valid;
                 }
-            }, */
+            },
             success: function() {
+
                 // swAlert(response)
-                // $('#employeeForm')[0].reset();
-                // $(".spinner-border").addClass("d-none")
+                $('#employeeForm')[0].reset();
+                $(".spinner-border").addClass("d-none")
             }
         });
+        
     </script>
 </body>
 
