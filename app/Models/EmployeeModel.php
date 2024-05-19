@@ -21,7 +21,7 @@ class EmployeeModel extends Model
 
     public function get_role()
     {
-        $result = $this->db->table('roles')->get()->getResult();
+        $result = $this->db->table('roles')->whereIn('id',[4,7,8])->get()->getResult();
         return $result;
     }
 
@@ -33,9 +33,13 @@ class EmployeeModel extends Model
             if(isset($postFile)){
                 $profile = UploadFile($postFile);
             }
+            $username = preg_replace('/\s+/', '', $postData['name']);
+            $username = strtolower($username);
+            $username = $username.rand(10,99);
 
                 $userData = [
-                    'username' => rand(1000,9000),
+                    'username' => $username,
+                    'role_id' => $postData['role_id'],
                     'email' => $postData['email'],
                     'password' => getHash($postData['confirm_password']),
                     'mobile' => $postData['mobile'],

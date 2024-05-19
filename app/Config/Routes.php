@@ -7,6 +7,7 @@ use  App\Modules\Breadcrumbs\Breadcrumbs;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->get('get-file/(:any)', 'FileController::getFile/$1');
 // $routes->get('/', 'AuthController::index');
 // $routes->group('/',['filter'=>'authFilter','namescape' => 'App\Controller'], static function
 // ($routes){

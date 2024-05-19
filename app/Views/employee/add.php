@@ -326,7 +326,8 @@
                 required: true
             },
             confirm_password: {
-                required: true
+                required: true,
+                equalTo: "#password"
             },
         },
         messages: {
