@@ -43,7 +43,7 @@
                                 <div class="card-body">
 
                                     <h4 class="card-title mb-3"> Add Employee</h4>
-                                    <form class="employeeForm" id="employeeForm" method="post" >
+                                    <form class="employeeForm" id="employeeForm" method="post" action="<?=base_url('back-panel/employee/employee-add')?>">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="mb-3">
@@ -68,7 +68,7 @@
                                                     <select id="designation_id" name="designation_id" class="form-select">
                                                         <option value="" selected>Choose...</option>
                                                         <?php if (!empty($Designation)) foreach ($Designation as $desig) : ?>
-                                                            <option value="<?= $desig->label; ?>"><?= $desig->label; ?></option>
+                                                            <option value="<?= $desig->id; ?>"><?= $desig->label; ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
@@ -286,10 +286,10 @@
                 permanent_address: {
                     required:true
                 },
-                profile_picture: {
-                    accept: "image/*",
-                    minImageWidth: 1
-                },
+                // profile_picture: {
+                //     accept: "image/*",
+                //     minImageWidth: 1
+                // },
 
                 email: {
                     required:true
@@ -362,6 +362,21 @@
                 return (imageWidth)
                     ? ("Your image's width must be greater than " + minWidth + "px")
                     : "Selected file is not an image.";
+                });
+
+                $("#employeeForm").ajaxForm({
+                    beforeSubmit: function() {
+                        var valid = $('#employeeForm').valid();
+                        if(valid){
+                            $(".spinner-border").removeClass("d-none")
+                            return valid;
+                        }
+                    },
+                    success: function() {
+                        swAlert(response)
+                        $('#employeeForm')[0].reset();
+                        $(".spinner-border").addClass("d-none")
+                    }
                 });
     </script>
 </body>

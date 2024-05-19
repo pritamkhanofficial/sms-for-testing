@@ -24,4 +24,9 @@ class EmployeeModel extends Model
         $result = $this->db->table('roles')->get()->getResult();
         return $result;
     }
+
+    public function submitEmployee($data)
+    {
+        return $this->db->table('staffs')->insert($data);
+    }
 }
