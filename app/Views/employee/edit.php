@@ -39,7 +39,7 @@
                 <div id="layout-wrapper">
 
                     <div class="row">
-                        <div class="col-xl-4">
+                        <div class="col-xl-12">
                             <div class="card overflow-hidden">
                                 <div class="bg-primary bg-soft">
                                     <div class="row">
@@ -86,230 +86,243 @@
                                 </div>
                             </div>
                             <!-- end card -->
-
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title mb-4">Personal Information</h4>
-
-                                    <p class="text-muted mb-4">Hi I'm Cynthia Price,has been the industry's standard dummy text To an English person, it will seem like simplified English, as a skeptical Cambridge.</p>
-                                    <div class="table-responsive">
-                                        <table class="table table-nowrap mb-0">
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">Full Name :</th>
-                                                    <td>Cynthia Price</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Mobile :</th>
-                                                    <td>(123) 123 1234</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">E-mail :</th>
-                                                    <td>cynthiaskote@gmail.com</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Location :</th>
-                                                    <td>California, United States</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end card -->
-
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title mb-5">Experience</h4>
-                                    <div class="">
-                                        <ul class="verti-timeline list-unstyled">
-                                            <li class="event-list active">
-                                                <div class="event-timeline-dot">
-                                                    <i class="bx bx-right-arrow-circle bx-fade-right"></i>
-                                                </div>
-                                                <div class="d-flex">
-                                                    <div class="flex-shrink-0 me-3">
-                                                        <i class="bx bx-server h4 text-primary"></i>
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <div>
-                                                            <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark">Back end Developer</a></h5>
-                                                            <span class="text-primary">2016 - 19</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="event-list">
-                                                <div class="event-timeline-dot">
-                                                    <i class="bx bx-right-arrow-circle"></i>
-                                                </div>
-                                                <div class="d-flex">
-                                                    <div class="flex-shrink-0 me-3">
-                                                        <i class="bx bx-code h4 text-primary"></i>
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <div>
-                                                            <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark">Front end Developer</a></h5>
-                                                            <span class="text-primary">2013 - 16</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="event-list">
-                                                <div class="event-timeline-dot">
-                                                    <i class="bx bx-right-arrow-circle"></i>
-                                                </div>
-                                                <div class="d-flex">
-                                                    <div class="flex-shrink-0 me-3">
-                                                        <i class="bx bx-edit h4 text-primary"></i>
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <div>
-                                                            <h5 class="font-size-15"><a href="javascript: void(0);" class="text-dark">UI /UX Designer</a></h5>
-                                                            <span class="text-primary">2011 - 13</span>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- end card -->
                         </div>
+                    </div>
 
-                        <div class="col-xl-8">
+                    <div class="col-xl-12">
 
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card mini-stats-wid">
-                                        <div class="card-body">
-                                            <div class="d-flex">
-                                                <div class="flex-grow-1">
-                                                    <p class="text-muted fw-medium mb-2">Completed Projects</p>
-                                                    <h4 class="mb-0">125</h4>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-0">Employee Details</h4>
+
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="mt-4">
+
+                                            <div class="accordion" id="accordionExample">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                        <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                            Official Details
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">
+                                                            <div class="text-muted">
+                                                                <form action="" method="post">
+                                                                    <form>
+                                                                        <div class="row">
+                                                                            <div class="col-md-4">
+                                                                                <div class="mb-3">
+                                                                                    <label for="role_id" class="form-label required">Role</label>
+                                                                                    <select id="role_id" name="role_id" class="form-select">
+                                                                                        <option value="" selected>Choose...</option>
+                                                                                        <?php if (!empty($Role)) foreach ($Role as $Role) : ?>
+                                                                                            <option value="<?= $Role->id; ?>"><?= $Role->display_name; ?>
+                                                                                            </option>
+                                                                                        <?php endforeach; ?>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <div class="mb-3">
+                                                                                    <label for="formrow-joiningDate-input" class="from-label required">Joining
+                                                                                        Date</label>
+                                                                                    <input type="date" class="form-control" name="joining_date" id="joining_date" placeholder="Enter Your Joining Date">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <div class="mb-3">
+                                                                                    <label for="designation_id" class="form-label required">Designation</label>
+                                                                                    <select id="designation_id" name="designation_id" class="form-select">
+                                                                                        <option value="" selected>Choose...</option>
+                                                                                        <?php if (!empty($Designation)) foreach ($Designation as $desig) : ?>
+                                                                                            <option value="<?= $desig->id; ?>"><?= $desig->label; ?>
+                                                                                            </option>
+                                                                                        <?php endforeach; ?>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="mb-3">
+                                                                                    <label for="department_id" class="form-label required">Department</label>
+                                                                                    <select id="department_id" name="department_id" class="form-select">
+                                                                                        <option value="" selected>Choose...</option>
+                                                                                        <?php if (!empty($Department)) foreach ($Department as $depart) : ?>
+                                                                                            <option value="<?= $depart->id; ?>"><?= $depart->label; ?>
+                                                                                            </option>
+                                                                                        <?php endforeach; ?>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="mb-3">
+                                                                                    <label for="qualification" class="from-label required">Qualification</label>
+                                                                                    <input type="text" class="form-control" id="qualification" name="qualification" placeholder="Enter Your Qualification">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="text-center">
+                                                                            <button type="submit" name="submit" value="submit" class="btn btn-primary w-md loadBtn">Submit</button>
+                                                                    </form>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingTwo">
+                                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                            Personal Details
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">
+                                                            <div class="text-muted">
+                                                                <form class="employeeForm" id="employeeForm" method="post" enctype="multipart/form-data action=" <?= base_url('back-panel/employee/add') ?>">
 
-                                                <div class="flex-shrink-0 align-self-center">
-                                                    <div class="mini-stat-icon avatar-sm rounded-circle bg-primary">
-                                                        <span class="avatar-title">
-                                                            <i class="bx bx-check-circle font-size-24"></i>
-                                                        </span>
+
+                                                                    <div class="row">
+
+                                                                        <div class="col-md-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="name" class="form-label required">Name</label>
+                                                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name Your Name">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="gender" class="form-label required">Gender</label>
+                                                                                <select id="gender" name="gender" class="form-select">
+                                                                                    <option value="" selected>Choose...</option>
+                                                                                    <option value="male">Male</option>
+                                                                                    <option value="female">female</option>
+                                                                                    <option value="others">others</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-lg-4">
+                                                                            <div class="mb-3">
+                                                                                <label for="religion" class="form-label required">Religion</label>
+                                                                                <input type="text" class="form-control" id="religion" name="religion" placeholder="Enter Your Religion">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4">
+                                                                            <div class="mb-3">
+                                                                                <label for="blood_group" class="form-label required">Blood
+                                                                                    group</label>
+                                                                                <select id="blood_group" name="blood_group" class="form-select">
+                                                                                    <option value="" selected>Choose...</option>
+                                                                                    <option value="O+">O+</option>
+                                                                                    <option value="O-">O-</option>
+                                                                                    <option value="A+">A+</option>
+                                                                                    <option value="A-">A-</option>
+                                                                                    <option value="B+">B+</option>
+                                                                                    <option value="B-">B-</option>
+                                                                                    <option value="AB+">AB+</option>
+                                                                                    <option value="AB-">AB-</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-lg-4">
+                                                                            <div class="mb-3">
+                                                                                <label for="date_of_birth" class="form-label required">Date Of Birth
+                                                                                </label>
+                                                                                <input type="date" class="form-control" id="date_of_birth" name="date_of_birth">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-12">
+                                                                            <div class="mb-3">
+                                                                                <label for="mobile" class="form-label required">Mobile No</label>
+                                                                                <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Enter Your Mobile Number">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="present_address required">Present Address </label>
+                                                                                <textarea id="present_address" name="present_address" class="form-control" rows="3" placeholder="Enter Your Present Address "></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="permanent_address">Permanent Address</label>
+                                                                                <textarea id="permanent_address" name="permanent_address" class="form-control" rows="3" placeholder="Enter Your Permanent Address"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-12">
+                                                                            <div class="mb-3">
+                                                                                <label for="profile_picture" class="form-label">Profile
+                                                                                    Picture</label>
+                                                                                <input type="file" class="form-control dropify" id="profile_picture" name="profile_picture" placeholder="Enter Your Email">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="email" class="form-label required">Email</label>
+                                                                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3">
+                                                                            <div class="mb-3">
+                                                                                <label for="password" class="form-label required">Password</label>
+                                                                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-3">
+                                                                            <div class="mb-3">
+                                                                                <label for="confirm_password" class="form-label required">Retype
+                                                                                    Password</label>
+                                                                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Re-enter Your Password">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="text-center">
+                                                                        <button type="submit" name="submit" value="submit" class="btn btn-primary w-md loadBtn">Submit</button>
+                                                                    </div>
+                                                                </form>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingThree">
+                                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                            Accordion Item #3
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">
+                                                            <div class="text-muted">
+                                                                <strong class="text-dark">This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- end accordion -->
                                         </div>
                                     </div>
+                                    <!-- end col -->
+                                    <!-- end col -->
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="card mini-stats-wid">
-                                        <div class="card-body">
-                                            <div class="d-flex">
-                                                <div class="flex-grow-1">
-                                                    <p class="text-muted fw-medium mb-2">Pending Projects</p>
-                                                    <h4 class="mb-0">12</h4>
-                                                </div>
-
-                                                <div class="flex-shrink-0 align-self-center">
-                                                    <div class="avatar-sm mini-stat-icon rounded-circle bg-primary">
-                                                        <span class="avatar-title">
-                                                            <i class="bx bx-hourglass font-size-24"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card mini-stats-wid">
-                                        <div class="card-body">
-                                            <div class="d-flex">
-                                                <div class="flex-grow-1">
-                                                    <p class="text-muted fw-medium mb-2">Total Revenue</p>
-                                                    <h4 class="mb-0">$36,524</h4>
-                                                </div>
-
-                                                <div class="flex-shrink-0 align-self-center">
-                                                    <div class="avatar-sm mini-stat-icon rounded-circle bg-primary">
-                                                        <span class="avatar-title">
-                                                            <i class="bx bx-package font-size-24"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!-- end row -->
                             </div>
-
-                            <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-0">Accordion</h4>
-
-                                        <div class="row">
-                                            <div class="col-xl-12">
-                                                <div class="mt-4">
-                                                    <h5 class="font-size-14">Example</h5>
-                                                    <p class="card-title-desc">Click the accordions below to expand/collapse the accordion content.</p>
-
-                                                    <div class="accordion" id="accordionExample">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="headingOne">
-                                                                <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                Accordion Item #1
-                                                                </button>
-                                                            </h2>
-                                                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                                <div class="accordion-body">
-                                                                    <div class="text-muted">
-                                                                        <strong class="text-dark">This is the first item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="headingTwo">
-                                                                <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                                Accordion Item #2
-                                                                </button>
-                                                            </h2>
-                                                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                                                <div class="accordion-body">
-                                                                    <div class="text-muted">
-                                                                        <strong class="text-dark">This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="headingThree">
-                                                                <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                                Accordion Item #3
-                                                                </button>
-                                                            </h2>
-                                                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                                                <div class="accordion-body">
-                                                                    <div class="text-muted">
-                                                                        <strong class="text-dark">This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- end accordion -->
-                                                </div>
-                                            </div>
-                                            <!-- end col -->
-                                            <!-- end col -->
-                                        </div>
-                                        <!-- end row -->
-                                    </div>
-                                </div>
                         </div>
                     </div>
 
