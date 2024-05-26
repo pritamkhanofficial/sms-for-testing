@@ -54,14 +54,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php
+                                    if(!empty($list)){
+                                        foreach($list as $data){
+                                ?>
                                 <div class="card-body pt-0">
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="avatar-md profile-user-wid mb-4">
-                                                <img src="assets/images/users/avatar-1.jpg" alt="" class="img-thumbnail rounded-circle">
+                                                <img src="<?= base_url('get-file/' . $data->photo); ?>" alt="" class="img-thumbnail rounded-circle">
                                             </div>
-                                            <h5 class="font-size-15 text-truncate">Cynthia Price</h5>
-                                            <p class="text-muted mb-0 text-truncate">UI/UX Designer</p>
+                                            <h5 class="font-size-15 text-truncate"><?= $data->name; ?></h5>
+                                            <p class="text-muted mb-0 text-truncate"><?= $data->qualification; ?></p>
                                         </div>
 
                                         <div class="col-sm-8">
@@ -84,6 +88,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php
+                                    }
+                                }
+                                ?>
                             </div>
                             <!-- end card -->
                         </div>
