@@ -72,6 +72,7 @@ $routes->group('back-panel', static function ($routes) {
         $routes->group('employee', static function ($routes){
             $routes->match(['get', 'post'],'add', 'EmployeeController::employeeAdd');
             $routes->match(['get', 'post'],'list', 'EmployeeController::employeeList');
+            $routes->match(['get', 'post'], 'edit/(:num)', 'EmployeeController::employeeEdit/$1');
         });
         $routes->group('ajax', static function ($routes) {
 
