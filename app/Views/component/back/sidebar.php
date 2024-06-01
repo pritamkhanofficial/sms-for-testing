@@ -86,7 +86,8 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href="<?= base_url('back-panel/employee/add') ?>" key="t-sidebar">Add</a></li>
-                    </ul>
+                        <li><a href="<?= base_url('back-panel/employee/list') ?>" key="t-sidebar">List</a></li>
+                        </ul>
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
