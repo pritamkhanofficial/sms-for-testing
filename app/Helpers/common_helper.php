@@ -64,14 +64,15 @@ function getBUD(){
     if(isset($request->user)){
         $payload = $request->user;
         if(!is_null($payload)){
-            $path = WRITEPATH . 'uploads/';
+            /* $path = WRITEPATH . 'uploads/';
             $fullpath = $path . $payload->profile_pic;
             if(is_file($fullpath)){
                 $profile_pic = base_url('get-file/' . $payload->profile_pic);
                 $payload->user_profile_pic = $profile_pic;
             }else{ 
                 $payload->user_profile_pic = base_url().$payload->profile_pic;
-            }
+            } */
+            $payload->user_profile_pic = base_url('get-file/' . $payload->profile_pic);
         }
     }
     return $payload;

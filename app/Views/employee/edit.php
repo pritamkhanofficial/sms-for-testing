@@ -114,63 +114,7 @@
                                             <div id="basic-details" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
                                                     <div class="row">
-                                                        <form action="" method="post">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="mb-3">
-                                                                        <label for="role_id" class="form-label required">Role</label>
-                                                                        <select id="role_id" name="role_id" class="form-select">
-                                                                            <option value="" selected>Choose...</option>
-                                                                            <?php if (!empty($Role)) foreach ($Role as $Role) : ?>
-                                                                                <option value="<?= $Role->id; ?>"><?= $Role->display_name; ?>
-                                                                                </option>
-                                                                            <?php endforeach; ?>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="mb-3">
-                                                                        <label for="formrow-joiningDate-input" class="from-label required">Joining
-                                                                            Date</label>
-                                                                        <input type="date" class="form-control" name="joining_date" id="joining_date" placeholder="Enter Your Joining Date">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="mb-3">
-                                                                        <label for="designation_id" class="form-label required">Designation</label>
-                                                                        <select id="designation_id" name="designation_id" class="form-select">
-                                                                            <option value="" selected>Choose...</option>
-                                                                            <?php if (!empty($Designation)) foreach ($Designation as $desig) : ?>
-                                                                                <option value="<?= $desig->id; ?>"><?= $desig->label; ?>
-                                                                                </option>
-                                                                            <?php endforeach; ?>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="mb-3">
-                                                                        <label for="department_id" class="form-label required">Department</label>
-                                                                        <select id="department_id" name="department_id" class="form-select">
-                                                                            <option value="" selected>Choose...</option>
-                                                                            <?php if (!empty($Department)) foreach ($Department as $depart) : ?>
-                                                                                <option value="<?= $depart->id; ?>"><?= $depart->label; ?>
-                                                                                </option>
-                                                                            <?php endforeach; ?>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="mb-3">
-                                                                        <label for="qualification" class="from-label required">Qualification</label>
-                                                                        <input type="text" class="form-control" id="qualification" name="qualification" placeholder="Enter Your Qualification">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="text-center">
-                                                                <button type="submit" name="submit" value="submit" class="btn btn-primary w-md loadBtn">Submit</button>
-                                                        </form>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
