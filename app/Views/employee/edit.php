@@ -103,7 +103,7 @@
 
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-0">Employee Details</h4>
+                                    <h4 class="card-title mb-4">Employee Details</h4>
                                     <div class="accordion" id="accordionExample">
                                         <div class="accordion-item">
                                             <h2 class="accordion-header" id="headingOne">
@@ -113,8 +113,13 @@
                                             </h2>
                                             <div id="basic-details" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
-                                                    <div class="row">
-                                                        
+                                                    <div class=" container ">
+                                                        <div class="row">
+                                                        <form action="" method="post">
+                                                                
+                                                               
+                                                        </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

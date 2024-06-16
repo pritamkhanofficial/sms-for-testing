@@ -67,8 +67,8 @@
                                                             <td><?= $val->joining_date; ?></td>
                                                             <td><img src="<?= base_url('get-file/' . $val->photo); ?>" height="50" width="50" alt=""></td>
                                                             <td style="width: 100px">
-                                                                <a class="btn btn-outline-secondary btn-sm edit" href="<?= base_url('back-panel/employee/edit/' . $val->id) ?>" title="Edit">
-                                                                    <i class="fas fa-pencil-alt"></i>
+                                                                <a class="edit" href="<?= base_url('back-panel/employee/edit/' . $val->id) ?>" title="Edit">
+                                                                    <i class="fas fa-edit"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
