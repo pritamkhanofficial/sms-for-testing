@@ -1,7 +1,8 @@
 
 <!-- App favicon -->
 <link rel="shortcut icon" href="<?= base_url(); ?>assets/images/favicon.ico">
-
+<!-- Bootstrap Css -->
+<link href="<?= base_url(); ?>back/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
 <!-- DataTables -->
 <link href="<?= base_url(); ?>back/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 <link href="<?= base_url(); ?>back/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -10,8 +11,7 @@
 <link href="<?= base_url(); ?>back/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
 <link href="<?= base_url(); ?>back/css/select2.min.css" rel="stylesheet" />
-<!-- Bootstrap Css -->
-<link href="<?= base_url(); ?>back/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+
 <!-- Icons Css -->
 <link href="<?= base_url(); ?>back/css/icons.min.css" rel="stylesheet" type="text/css" />
 <!-- App Css-->

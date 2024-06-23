@@ -215,4 +215,9 @@ class MasterModel extends Model
         return  $query->get()->getResult();
         // getQuery();
     }
+
+    public function allocatedSubjectList(){
+        $query = $this->db->table('subject')->where(['deleted_at' => NULL, 'is_active' => 1 ])->get()->getResult();
+        return $query;
+    }
 }

@@ -47,8 +47,9 @@ class MasterController extends BaseController
     {
         $model = new MasterModel();
         $subjectList = $model->subjectAllocationList();
+        $allocatedSubject = $model->allocatedSubjectList();
         return view('subject/subject_allocation_list', [
-            'subjectList'=>$subjectList
+            'subjectList'=>$subjectList, 'allocatedSubject' => $allocatedSubject
         ]);
     }
     public function subjectAllocationAdd()
