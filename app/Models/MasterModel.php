@@ -76,7 +76,7 @@ class MasterModel extends Model
             $this->db->transComplete();
             return (array)$output;
         } catch (DatabaseException $e) {
-            throw $th;
+            throw $e;
         }
     }
 
