@@ -10,8 +10,15 @@
     <meta content="Themesbrand" name="author" />
 
     <?php
-echo view('component/back/head');
-?>
+    echo view('component/back/head');
+    ?>
+
+    <style>
+        .select2-container {
+            z-index: 9999999999999;
+            /* Ensure it is higher than the Bootstrap modal z-index */
+        }
+    </style>
 
 </head>
 
@@ -23,12 +30,12 @@ echo view('component/back/head');
 
 
         <?php
-echo view('component/back/header');
-?>
+        echo view('component/back/header');
+        ?>
 
         <?php
-echo view('component/back/sidebar');
-?>
+        echo view('component/back/sidebar');
+        ?>
 
         <!-- ============================================================== -->
         <!-- Start right Content here -->
@@ -45,7 +52,7 @@ echo view('component/back/sidebar');
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12 mb-2">
-                                            <a class="btn btn-success btn-sm" href="<?=base_url('back-panel/master/subject-allocation-add')?>"><i class="fas fa-plus"></i> Add</a>
+                                            <a class="btn btn-success btn-sm" href="<?= base_url('back-panel/master/subject-allocation-add') ?>"><i class="fas fa-plus"></i> Add</a>
                                         </div>
                                     </div>
                                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
@@ -62,33 +69,33 @@ echo view('component/back/sidebar');
 
                                         <tbody>
                                             <?php
-foreach ($subjectList as $key => $row) {
-    ?>
+                                            foreach ($subjectList as $key => $row) {
+                                            ?>
                                                 <tr>
                                                     <td>
-                                                        <?=++$key?>
+                                                        <?= ++$key ?>
                                                     </td>
                                                     <td>
-                                                        <?=$row->class_name?>
-                                                    </td>
-
-                                                    <td>
-                                                        <?=$row->section_name?>
+                                                        <?= $row->class_name ?>
                                                     </td>
 
                                                     <td>
-                                                        <?=$row->subjects?>
+                                                        <?= $row->section_name ?>
                                                     </td>
 
                                                     <td>
-                                                        <button class="btn btn-success btn-sm" onclick="getModel('<?=$row->class_id?>')" data-class_id="<?=$row->class_id?>" data-section_id="<?=$row->section_id?>"><i class="fas fa-edit"></i></button>
-                                                        <button class="btn btn-primary btn-sm" data-class_id="<?=$row->class_id?>" data-section_id="<?=$row->section_id?>"><i class="fas fa-user-tie"></i></button>
+                                                        <?= $row->subjects ?>
+                                                    </td>
+
+                                                    <td>
+                                                        <button class="btn btn-success btn-sm" onclick="getModel('<?= $row->class_id ?>')" data-class_id="<?= $row->class_id ?>" data-section_id="<?= $row->section_id ?>"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-primary btn-sm" data-class_id="<?= $row->class_id ?>" data-section_id="<?= $row->section_id ?>"><i class="fas fa-user-tie"></i></button>
                                                     </td>
                                                 </tr>
                                             <?php
-}
+                                            }
 
-?>
+                                            ?>
                                         </tbody>
                                     </table>
 
@@ -102,8 +109,8 @@ foreach ($subjectList as $key => $row) {
             <!-- End Page-content -->
 
             <?php
-echo view('component/back/footer');
-?>
+            echo view('component/back/footer');
+            ?>
         </div>
         <!-- end main content-->
 
@@ -119,6 +126,7 @@ echo view('component/back/footer');
     <!-- Modal -->
     <!-- Button trigger modal -->
     <!-- Modal -->
+
     <div class="modal hide fade" id="editSubjectModal" data-bs-backdrop="static" role="dialog" aria-labelledby="editSubjectModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -128,22 +136,22 @@ echo view('component/back/footer');
                 </div>
                 <div class="modal-body" style="max-height: 800px">
                     <div class="container-fluid">
-                    <form action="" method="POST">
-                        <div class="mb-3 row">
-                            <div class="col-md-12">
-                                <select class="form-select" name="subject" id="subject" multiple>
-                                    <?php foreach ($allocatedSubject as $key => $sub) {?>
-                                        <option value="<?=$sub->id?>"><?=$sub->label?></option>
-                                    <?php }?>
-                                </select>
+                        <form action="" method="POST">
+                            <div class="mb-3 row">
+                                <div class="col-md-12">
+                                    <select class="form-select subject" name="subject" id="subject" multiple style="width: 100%;">
+                                        <?php foreach ($allocatedSubject as $key => $sub) { ?>
+                                            <option value="<?= $sub->id ?>"><?= $sub->label ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3 text-center mt-4">
-                            <div>
-                                <button type="submit" name="submit" value="submit" class="btn btn-success">Update</button>
+                            <div class="row mb-3 text-center mt-4">
+                                <div>
+                                    <button type="submit" name="submit" value="submit" class="btn btn-success">Update</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
                     </div>
                 </div>
 
@@ -159,7 +167,7 @@ echo view('component/back/footer');
     <script>
         function getModel(classId) {
             // alert(classId);
-            
+
             $('#editSubjectModal').modal('show');
             $('.subject').select2();
         }
