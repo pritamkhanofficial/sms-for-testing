@@ -167,9 +167,20 @@
     <script>
         function getModel(classId) {
             // alert(classId);
-
-            $('#editSubjectModal').modal('show');
-            $('.subject').select2();
+            $.ajax({
+                    url: '<?= base_url('back-panel/ajax/get-subject-by-class') ?>',
+                    method: 'GET',
+                    dataType: 'json',
+                    data: {
+                        class_id: classId
+                    },
+                    success: function (response) {
+                        // console.log(response);
+                        $('#editSubjectModal').modal('show');
+                        $('.subject').select2();
+                        $('.subject').val(response).trigger('change');
+                    }
+                });
         }
     </script>
 </body>

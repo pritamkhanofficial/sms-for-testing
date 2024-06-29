@@ -220,4 +220,10 @@ class MasterModel extends Model
         $query = $this->db->table('subject')->where(['deleted_at' => NULL, 'is_active' => 1 ])->get()->getResult();
         return $query;
     }
+
+    public function getSubjectByClass($class_id)
+    {
+        $result = $this->db->table('subject_allocation')->where(['class_id' => $class_id])->get()->getResult();
+        return $result;
+    }
 }

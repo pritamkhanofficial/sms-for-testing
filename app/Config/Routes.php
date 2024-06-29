@@ -77,6 +77,8 @@ $routes->group('back-panel', static function ($routes) {
         });
         $routes->group('ajax', static function ($routes) {
 
+            $routes->match(['get','post'],'get-subject-by-class', 'AjaxController::getSubjectByClass');
+
             $routes->match(['get', 'post'],'get-section-by-class', 'AjaxController::getSectionByClass');
         });
 
@@ -124,6 +126,7 @@ $routes->group('back-panel', static function ($routes) {
 
 
     $routes->match(['get','post'],'/get-sections', 'SubjectAllocation::getSection', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/get-subject-by-class', 'AjaxController::getSubjectByClass', ['filter' => 'authfilter']);
 });
 
 
