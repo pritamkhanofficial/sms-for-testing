@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Exception;
 use CodeIgniter\Model;
 use CodeIgniter\Database\Exceptions\DatabaseException;
 use App\Libraries\GroceryCrud;
@@ -225,5 +225,65 @@ class MasterModel extends Model
     {
         $result = $this->db->table('subject_allocation')->where(['class_id' => $class_id])->get()->getResult();
         return $result;
+    }
+
+    public function updateSubjectAllocation($data){
+        try {
+            $this->db->transException(true)->transStart();
+            $class_id    = $data['class_id'];
+            $section_id  = $data['section_id'];
+            $subject_ids = $data['subject_id'];
+            $sql = "SELECT
+                        sa.subject_id
+                    FROM
+                        `subject_allocation` AS sa
+                    WHERE
+                        sa.class_id = $class_id
+                    AND
+                        sa.section_id = $section_id
+                    ";
+            $dbSubject = $this->db->query($sql)->getResult();
+            // getPrint($dbSubject);
+            if(!empty($dbSubject)){
+                $insertArray = [];
+                foreach ($subject_ids as $value) {
+                    $checkSubject = array_filter($dbSubject,function($item) use ($value){
+                        return $item->subject_id == $value;
+                    });
+
+                    $checkSubject = array_shift($checkSubject);
+    
+                    if(empty($checkSubject) || $checkSubject->subject_id <> $value){
+                        $insertArray[] = [
+                            'class_id' => $class_id, 
+                            'section_id' => $section_id, 
+                            'subject_id' => $value
+                        ];
+                    }
+                }
+                // getPrint($insertArray);
+
+                $this->db->table('subject_allocation')->insertBatch($insertArray);
+    
+    
+                $this->db->table('subject_allocation')->where(['class_id' => $class_id, 'section_id' => $section_id])->whereNotIn('subject_id', $subject_ids)->delete();
+            }
+            
+
+
+            $this->db->transComplete();
+            if ($this->db->transStatus() === false) {
+                return [
+                    'success' => false,
+                    'message' => '!Oops something went wrong. Please try again.'
+                ];
+            }
+            return [
+                'success' => true,
+                'message' => 'Subject allocated successfully'
+            ];
+        } catch (DatabaseException $e) {
+            throw $e;
+        }
     }
 }

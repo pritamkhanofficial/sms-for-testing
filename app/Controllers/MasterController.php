@@ -48,6 +48,8 @@ class MasterController extends BaseController
         $model = new MasterModel();
         $subjectList = $model->subjectAllocationList();
         $allocatedSubject = $model->allocatedSubjectList();
+        // getPrint($allocatedSubject);
+        // getPrint($subjectList);
         return view('subject/subject_allocation_list', [
             'subjectList'=>$subjectList, 'allocatedSubject' => $allocatedSubject
         ]);

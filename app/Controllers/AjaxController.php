@@ -28,4 +28,11 @@ class AjaxController extends BaseController
         $subjectIds = array_column($result,"subject_id");
         return $this->response->setJSON($subjectIds);
     }
+
+    public function updateSubjectAllocation(){
+        $model = new Mastermodel();
+        $result = $model->updateSubjectAllocation($this->request->getVar());
+        return $this->response->setJSON($result);
+    }
+
 }

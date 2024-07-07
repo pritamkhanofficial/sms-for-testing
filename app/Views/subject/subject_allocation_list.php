@@ -88,7 +88,7 @@
                                                     </td>
 
                                                     <td>
-                                                        <button class="btn btn-success btn-sm" onclick="getModel('<?= $row->class_id ?>')" data-class_id="<?= $row->class_id ?>" data-section_id="<?= $row->section_id ?>"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-success btn-sm" onclick="getModel('<?= $row->class_id ?>','<?=$row->section_id?>')" data-class_id="<?= $row->class_id ?>" data-section_id="<?= $row->section_id ?>"><i class="fas fa-edit"></i></button>
                                                         <button class="btn btn-primary btn-sm" data-class_id="<?= $row->class_id ?>" data-section_id="<?= $row->section_id ?>"><i class="fas fa-user-tie"></i></button>
                                                     </td>
                                                 </tr>
@@ -137,6 +137,8 @@
                 <div class="modal-body" style="max-height: 800px">
                     <div class="container-fluid">
                         <form action="" method="POST">
+                        <input type="hidden" id="classId">
+                        <input type="hidden" id="sectionId">
                             <div class="mb-3 row">
                                 <div class="col-md-12">
                                     <select class="form-select subject" name="subject" id="subject" multiple style="width: 100%;">
@@ -144,11 +146,12 @@
                                             <option value="<?= $sub->id ?>"><?= $sub->label ?></option>
                                         <?php } ?>
                                     </select>
+
                                 </div>
                             </div>
                             <div class="row mb-3 text-center mt-4">
                                 <div>
-                                    <button type="submit" name="submit" value="submit" class="btn btn-success">Update</button>
+                                    <button type="button" name="submit" id="update" onclick="updateSubjectAllocation()" value="submit" class="btn btn-success">Update</button>
                                 </div>
                             </div>
                         </form>
@@ -165,23 +168,54 @@
     <?php echo view('component/back/script'); ?>
 
     <script>
-        function getModel(classId) {
+        function getModel(classId, sectionId) {
             // alert(classId);
             $.ajax({
-                    url: '<?= base_url('back-panel/ajax/get-subject-by-class') ?>',
-                    method: 'GET',
-                    dataType: 'json',
-                    data: {
-                        class_id: classId
-                    },
-                    success: function (response) {
-                        // console.log(response);
-                        $('#editSubjectModal').modal('show');
-                        $('.subject').select2();
-                        $('.subject').val(response).trigger('change');
-                    }
-                });
+                url: '<?= base_url('back-panel/ajax/get-subject-by-class') ?>',
+                method: 'GET',
+                dataType: 'json',
+                data: {
+                    class_id: classId
+                },
+                success: function (response) {
+                    // console.log(response);
+                    $('#editSubjectModal').modal('show');
+                    $('.subject').select2();
+                    $("#classId").val(classId);
+                    $("#sectionId").val(sectionId);
+                    $('.subject').val(response).trigger('change');
+                }
+            });
         }
+        function updateSubjectAllocation(){
+            var  classId  = $("#classId").val();
+            var  sectionId = $("#sectionId").val();
+            var  subjectIds = $('#subject').val();
+            console.log(subject);
+            $.ajax({
+                url: '<?= base_url('back-panel/ajax/update-subject-allocation') ?>',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    class_id: classId,
+                    section_id: sectionId,
+                    subject_id: subjectIds
+                },
+                success: function (response) {
+                    alert(response.message);
+                    $('#editSubjectModal').modal('hide');
+                    location.reload();
+                }
+            });
+        }
+
+        /*  $('#update').on('click', function () {
+                var subject = $('#subject').val();
+                var classId = $('#classId').val();
+                var sectionId = $('#sectionId').val();
+                alert(classId,sectionId);
+            }); */
+
     </script>
 </body>
 
