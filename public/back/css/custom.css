@@ -1,0 +1,27 @@
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.spinner {
+    display: inline-block;
+    opacity: 0;
+    width: 0;
+    -webkit-transition: opacity 0.25s, width 0.25s;
+    -moz-transition: opacity 0.25s, width 0.25s;
+    -o-transition: opacity 0.25s, width 0.25s;
+    transition: opacity 0.25s, width 0.25s;
+}
+
+.loadBtn.active {
+    cursor:progress;
+}
+
+.loadBtn.active .spinner {
+    opacity: 1;
+    width: auto;
+}
+
+.loadBtn.btn.active .spinner {
+    min-width: 20px;
+}

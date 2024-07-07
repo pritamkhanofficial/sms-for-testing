@@ -5,23 +5,23 @@
                 <div class="d-flex">
                     <!-- LOGO -->
                     <div class="navbar-brand-box">
-                        <a href="index.html" class="logo logo-dark">
+                        <!-- <a href="index.html" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="<?= base_url(); ?>back/images/logo.svg" alt="" height="22">
+                                <img src="< ?= base_url(); ?>back/images/logo.svg" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="<?= base_url(); ?>back/images/logo-dark.png" alt="" height="17">
+                                <img src="< ?= base_url(); ?>back/images/logo-dark.png" alt="" height="17">
                             </span>
-                        </a>
+                        </a> -->
 
-                        <a href="index.html" class="logo logo-light">
+                        <!-- <a href="index.html" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="<?= base_url(); ?>back/images/logo-light.svg" alt="" height="22">
+                                <img src="< ?= base_url(); ?>back/images/logo-light.svg" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="<?= base_url(); ?>back/images/logo-light.png" alt="" height="19">
+                                <img src="< ?= base_url(); ?>back/images/logo-light.png" alt="" height="19">
                             </span>
-                        </a>
+                        </a> -->
                     </div>
 
                     <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect"
@@ -30,12 +30,12 @@
                     </button>
 
                     <!-- App Search-->
-                    <form class="app-search d-none d-lg-block">
+                    <!-- <form class="app-search d-none d-lg-block">
                         <div class="position-relative">
                             <input type="text" class="form-control" placeholder="Search...">
                             <span class="bx bx-search-alt"></span>
                         </div>
-                    </form>
+                    </form> -->
 
 
                 </div>
@@ -66,7 +66,7 @@
                         </div>
                     </div>
 
-                    <div class="dropdown d-none d-lg-inline-block ms-1">
+                    <!-- <div class="dropdown d-none d-lg-inline-block ms-1">
                         <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <i class="bx bx-customize"></i>
@@ -119,16 +119,16 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="dropdown d-none d-lg-inline-block ms-1">
+                    <!-- <div class="dropdown d-none d-lg-inline-block ms-1">
                         <button type="button" class="btn header-item noti-icon waves-effect"
                             data-bs-toggle="fullscreen">
                             <i class="bx bx-fullscreen"></i>
                         </button>
-                    </div>
+                    </div> -->
 
-                    <div class="dropdown d-inline-block">
+                    <!-- <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item noti-icon waves-effect"
                             id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
@@ -223,7 +223,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="dropdown d-inline-block">
                         
@@ -264,7 +264,7 @@
 
                             <div class="dropdown-divider"></div>
 
-                            <a class="dropdown-item text-danger" href="<?= base_url('logout') ?>">
+                            <a class="dropdown-item text-danger" href="<?= base_url('back-panel/logout') ?>">
                                 <i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
                                 <span key="t-logout"
                                     onclick="return confirm ('Are you sure you want to log out?')">Logout</span>

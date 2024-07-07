@@ -2,11 +2,13 @@
 
 use App\Controllers\SubjectAllocation;
 use CodeIgniter\Router\RouteCollection;
-
+use  App\Modules\Breadcrumbs\Breadcrumbs;
 /**
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->get('get-file/(:any)', 'FileController::getFile/$1');
+$routes->get('get-file/', 'FileController::getFile');
 // $routes->get('/', 'AuthController::index');
 // $routes->group('/',['filter'=>'authFilter','namescape' => 'App\Controller'], static function
 // ($routes){
@@ -22,20 +24,62 @@ $routes->group('back-panel', static function ($routes) {
     $routes->match(['get','post'],'/', 'AuthController::auth');
     $routes->group('',['filter'=>'authFilter'], static function ($routes) {
         $routes->match(['get','post'],'dashboard', 'DashboardController::dashboard');
+        $routes->get('logout', 'AuthController::logout');
        /*  $routes->match(['get','post'],'section-add', 'SectionController::section_add');
         $routes->match(['get','post'],'section-view', 'SectionController::section_view');
         $routes->match(['get','post'],'section-store', 'SectionController::store_data'); */
 
         $routes->group('master', static function ($routes) {
 
-            $routes->match(['get', 'post'],'class/', 'MasterController::class');
-            $routes->match(['get', 'post'],'class/(:segment)', 'MasterController::class/$1');
-            $routes->match(['get', 'post'],'class/(:segment)/(:segment)', 'MasterController::class/$1/$2');
+            $routes->match(['get', 'post'],'class/', 'MasterController::classMaster');
+            $routes->match(['get', 'post'],'class/(:segment)', 'MasterController::classMaster/$1');
+            $routes->match(['get', 'post'],'class/(:segment)/(:segment)', 'MasterController::classMaster/$1/$2');
 
             $routes->match(['get', 'post'],'section/', 'MasterController::section');
             $routes->match(['get', 'post'],'section/(:segment)', 'MasterController::section/$1');
             $routes->match(['get', 'post'],'section/(:segment)/(:segment)', 'MasterController::section/$1/$2');
 
+            $routes->match(['get', 'post'],'subject/', 'MasterController::subject');
+            $routes->match(['get', 'post'],'subject/(:segment)', 'MasterController::subject/$1');
+            $routes->match(['get', 'post'],'subject/(:segment)/(:segment)', 'MasterController::subject/$1/$2');
+
+            $routes->match(['get', 'post'],'department/', 'MasterController::department');
+            $routes->match(['get', 'post'],'department/(:segment)', 'MasterController::department/$1');
+            $routes->match(['get', 'post'],'department/(:segment)/(:segment)', 'MasterController::department/$1/$2');
+
+            $routes->match(['get', 'post'],'designation/', 'MasterController::designation');
+            $routes->match(['get', 'post'],'designation/(:segment)', 'MasterController::designation/$1');
+            $routes->match(['get', 'post'],'designation/(:segment)/(:segment)', 'MasterController::designation/$1/$2');
+            $routes->match(['get', 'post'],'subject-allocation-list', 'MasterController::subjectAllocationList');
+            $routes->match(['get', 'post'],'subject-allocation-add', 'MasterController::subjectAllocationAdd');
+            
+
+        });
+        $routes->group('premission', static function ($routes) {
+
+            $routes->match(['get', 'post'],'header/', 'PermissionController::permissionHeader');
+            $routes->match(['get', 'post'],'header/(:segment)', 'PermissionController::permissionHeader/$1');
+            $routes->match(['get', 'post'],'header/(:segment)/(:segment)', 'PermissionController::permissionHeader/$1/$2');
+
+
+            $routes->match(['get', 'post'],'detail/', 'PermissionController::permissionDetail');
+            $routes->match(['get', 'post'],'detail/(:segment)', 'PermissionController::permissionDetail/$1');
+            $routes->match(['get', 'post'],'detail/(:segment)/(:segment)', 'PermissionController::permissionDetail/$1/$2');
+
+            $routes->match(['get', 'post'],'role/', 'PermissionController::role');
+            $routes->match(['get', 'post'],'role/(:segment)', 'PermissionController::role/$1');
+            $routes->match(['get', 'post'],'role/(:segment)/(:segment)', 'PermissionController::role/$1/$2');
+        });
+        $routes->group('employee', static function ($routes){
+            $routes->match(['get', 'post'],'add', 'EmployeeController::employeeAdd');
+            $routes->match(['get', 'post'],'list', 'EmployeeController::employeeList');
+            $routes->match(['get', 'post'], 'edit/(:num)', 'EmployeeController::employeeEdit/$1');
+        });
+        $routes->group('ajax', static function ($routes) {
+
+            $routes->match(['get','post'],'get-subject-by-class', 'AjaxController::getSubjectByClass');
+            $routes->match(['get', 'post'],'get-section-by-class', 'AjaxController::getSectionByClass');
+            $routes->match(['get', 'post'],'update-subject-allocation','AjaxController::updateSubjectAllocation');
         });
 
        
@@ -82,6 +126,7 @@ $routes->group('back-panel', static function ($routes) {
 
 
     $routes->match(['get','post'],'/get-sections', 'SubjectAllocation::getSection', ['filter' => 'authfilter']);
+    $routes->match(['get','post'],'/get-subject-by-class', 'AjaxController::getSubjectByClass', ['filter' => 'authfilter']);
 });
 
 

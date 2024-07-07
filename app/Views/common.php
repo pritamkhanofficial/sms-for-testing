@@ -29,7 +29,7 @@ foreach($css_files as $file): ?>
                 <div class="container-fluid">
 
                     <!-- start page breadcrumb -->
-                    <?=view('component/back/breadcrumb')?>
+                    <!-- < ?=view('component/back/breadcrumb')?> -->
                     <!-- end page breadcrumb -->
                     <div class="row">
 
