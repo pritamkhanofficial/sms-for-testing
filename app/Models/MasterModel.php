@@ -221,9 +221,9 @@ class MasterModel extends Model
         return $query;
     }
 
-    public function getSubjectByClass($class_id)
+    public function getSubjectByClass($class_id, $section_id)
     {
-        $result = $this->db->table('subject_allocation')->where(['class_id' => $class_id])->get()->getResult();
+        $result = $this->db->table('subject_allocation')->where(['class_id' => $class_id, 'section_id' => $section_id])->get()->getResult();
         return $result;
     }
 

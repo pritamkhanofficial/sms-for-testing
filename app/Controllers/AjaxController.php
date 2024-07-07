@@ -24,8 +24,12 @@ class AjaxController extends BaseController
     {
         $model = new Mastermodel();
         $class_id = $this->request->getVar('class_id');
-        $result = $model->getSubjectByClass($class_id);
-        $subjectIds = array_column($result,"subject_id");
+        $section_id = $this->request->getVar('section_id');
+        $result = $model->getSubjectByClass($class_id, $section_id);
+        if(!empty($result)){
+            $subjectIds = array_column($result,"subject_id");
+        }
+        
         return $this->response->setJSON($subjectIds);
     }
 

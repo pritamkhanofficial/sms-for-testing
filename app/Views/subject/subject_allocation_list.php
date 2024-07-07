@@ -175,7 +175,8 @@
                 method: 'GET',
                 dataType: 'json',
                 data: {
-                    class_id: classId
+                    class_id: classId,
+                    section_id: sectionId
                 },
                 success: function (response) {
                     // console.log(response);
