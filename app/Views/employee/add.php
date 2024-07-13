@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | Skote - Admin & Dashboard Template</title>
+    <title>Dashboard | TechniGlob - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -44,8 +44,7 @@
 
                                     <h4 class="card-title mb-3"> Add Employee</h4>
                                         <form class="employeeForm" id="employeeForm" method="post"
-                                            enctype="multipart/form-data action="
-                                            <?= base_url('back-panel/employee/add') ?>">
+                                            enctype="multipart/form-data action="<?= base_url('back-panel/employee/add') ?>"">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="mb-3">
